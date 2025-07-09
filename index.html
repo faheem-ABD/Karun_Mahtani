@@ -50,10 +50,11 @@
       // console.log('Center:', centerX, centerY);
 
       document.getElementById("instructionText").classList.remove("hidden");
+      setTimeout(() => {
+        document.getElementById("instructionText").classList.add("hidden");
+      }, 1000);
 
-
-
-    }
+      }
 
  
 
