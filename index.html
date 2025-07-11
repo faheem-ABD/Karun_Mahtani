@@ -31,23 +31,64 @@
 
   </section>
 
+
   <script>
+
+    let isDragging = false;
+    let lastAngle = 0;
+    let currentRotation = 0;
+    let spinStartTime = null;
+
+    let centerX = 0;
+    let centerY = 0;
+
 
     const element = document.getElementById('VinylDisc')
     
+    
 
-    element.addEventListener("mousedown", touchstart); // for desktop
-    element.addEventListener("touchstart", touchstart); // for mobile
+    element.addEventListener("mousedown", handleStart); 
+    element.addEventListener("touchstart", handleStart, { passive: false });
+    element.addEventListener("mouseup", handleEnd);
+    element.addEventListener("touchend", handleEnd);
 
+    element.addEventListener("mousemove", handleMove);
+    element.addEventListener("touchmove", handleMove);
 
-    function touchstart(event) {
+  
+    function handleStart(event) {
+      isDragging = true;
+      spinStartTime = Date.now();
+
 
       const rect = element.getBoundingClientRect();
-      //  console.log(rect.left, rect.top, rect.width, rect.height);
+      centerX = rect.left + rect.width / 2;
+      centerY = rect.top + rect.height / 2;
 
-      const centerX = rect.left + rect.width / 2;
-      const centerY = rect.top + rect.height / 2;
-      // console.log('Center:', centerX, centerY);
+      if (event.cancelable) event.preventDefault();
+
+
+      let pointerX, pointerY, deltaX, deltaY;
+
+      if(event.touches) {
+
+        pointerX = event.touches[0].clientX;
+        pointerY = event.touches[0].clientY;
+      }
+      else {
+
+        pointerX = event.clientX;
+        pointerY = event.clientY;
+
+      }
+
+      deltaX = pointerX-centerX;
+      deltaY = pointerY-centerY;
+
+      lastAngle = Math.atan2(deltaY, deltaX);
+
+
+    
 
       document.getElementById("instructionText").classList.remove("hidden");
       setTimeout(() => {
