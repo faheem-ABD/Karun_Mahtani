@@ -38,52 +38,43 @@
     let lastAngle = 0;
     let currentRotation = 0;
     let spinStartTime = null;
-
     let centerX = 0;
     let centerY = 0;
-
+    let canSpin = true;
 
     const element = document.getElementById('VinylDisc')
     const instructionText = document.getElementById('instructionText');
     
-  
     element.addEventListener("mousedown", handleStart); 
     element.addEventListener("touchstart", handleStart, { passive: false });
     element.addEventListener("mouseup", handleEnd);
     element.addEventListener("touchend", handleEnd);
-
     element.addEventListener("mousemove", handleMove);
     element.addEventListener("touchmove", handleMove);
 
-  
     function handleStart(event) {
+      if (!canSpin) return;
       isDragging = true;
       spinStartTime = Date.now();
-
 
       const rect = element.getBoundingClientRect();
       centerX = rect.left + rect.width / 2;
       centerY = rect.top + rect.height / 2;
 
       if (event.cancelable) event.preventDefault();
-      
-      let pointerX, pointerY, deltaX, deltaY;
 
+      let pointerX, pointerY;
       if(event.touches) {
-
         pointerX = event.touches[0].clientX;
         pointerY = event.touches[0].clientY;
       }
       else {
-
         pointerX = event.clientX;
         pointerY = event.clientY;
-
       }
 
-      deltaX = pointerX-centerX;
-      deltaY = pointerY-centerY;
-
+      const deltaX = pointerX-centerX;
+      const deltaY = pointerY-centerY;
       lastAngle = Math.atan2(deltaY, deltaX);
 
       instructionText.classList.remove("hidden");
@@ -93,22 +84,18 @@
 
     }
 
-
     function handleMove(event) {
-      if(!isDragging) return;
+      if(!isDragging || !canSpin) return;
       if (event.cancelable) event.preventDefault();
       
       let pointerX, pointerY;
-
       if(event.touches) {
-
         pointerX = event.touches[0].clientX;
         pointerY = event.touches[0].clientY;
       }
       else {
         pointerX = event.clientX;
         pointerY = event.clientY;
-
       }
 
       const deltaX = pointerX-centerX;
@@ -119,17 +106,12 @@
 
       const deltaDegrees = deltaAngle * (180 / Math.PI);
       currentRotation += deltaDegrees;
-
       element.style.transform = `rotate(${currentRotation}deg)`;
-
-
       lastAngle = currentAngle;
-
     }
 
     let autoSpinAnimationID = null;
-    let hasAutoSpun = false;
-
+   
     function autoSpin(){
       const spinSpeed = 1.5;
       const elapsed = Date.now() - spinStartTime;
@@ -148,14 +130,13 @@
     }
 
     function handleEnd() {
+      if (!canSpin) return;
       isDragging = false;
-
-      if(!hasAutoSpun) {
-        hasAutoSpun = true;
-        autoSpin();
+      canSpin = false;
+      autoSpin();
       }
 
-    }
+
      
   </script>
 
