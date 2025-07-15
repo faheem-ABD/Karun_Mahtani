@@ -25,7 +25,7 @@
     <div id="instructionText" class="hidden text-white text-center 
               text-lg bg-black bg-opacity-60 px-4 py-2 rounded shadow-md 
                mx-auto w-fit mt-4 sm:mt-6 md:mt-8 lg:mt-10 xl:mt-12 2xl:mt-14">
-          [ Spin the disc for 5 seconds ]
+          [ Spin the disc ]
     </div>
 
 
@@ -44,9 +44,9 @@
 
 
     const element = document.getElementById('VinylDisc')
+    const instructionText = document.getElementById('instructionText');
     
-    
-
+  
     element.addEventListener("mousedown", handleStart); 
     element.addEventListener("touchstart", handleStart, { passive: false });
     element.addEventListener("mouseup", handleEnd);
@@ -66,8 +66,7 @@
       centerY = rect.top + rect.height / 2;
 
       if (event.cancelable) event.preventDefault();
-
-
+      
       let pointerX, pointerY, deltaX, deltaY;
 
       if(event.touches) {
@@ -87,18 +86,77 @@
 
       lastAngle = Math.atan2(deltaY, deltaX);
 
-
-    
-
-      document.getElementById("instructionText").classList.remove("hidden");
+      instructionText.classList.remove("hidden");
       setTimeout(() => {
-        document.getElementById("instructionText").classList.add("hidden");
+        instructionText.classList.add("hidden");
       }, 1000);
+
+    }
+
+
+    function handleMove(event) {
+      if(!isDragging) return;
+      if (event.cancelable) event.preventDefault();
+      
+      let pointerX, pointerY;
+
+      if(event.touches) {
+
+        pointerX = event.touches[0].clientX;
+        pointerY = event.touches[0].clientY;
+      }
+      else {
+        pointerX = event.clientX;
+        pointerY = event.clientY;
 
       }
 
- 
+      const deltaX = pointerX-centerX;
+      const deltaY = pointerY-centerY;
 
+      const currentAngle = Math.atan2(deltaY, deltaX);
+      const deltaAngle = currentAngle - lastAngle;
+
+      const deltaDegrees = deltaAngle * (180 / Math.PI);
+      currentRotation += deltaDegrees;
+
+      element.style.transform = `rotate(${currentRotation}deg)`;
+
+
+      lastAngle = currentAngle;
+
+    }
+
+    let autoSpinAnimationID = null;
+    let hasAutoSpun = false;
+
+    function autoSpin(){
+      const spinSpeed = 1.5;
+      const elapsed = Date.now() - spinStartTime;
+  
+      if (elapsed > 5000) {
+          cancelAnimationFrame(autoSpinAnimationID);
+          // Placeholder: call your page transition here later
+          console.log("Auto-spin finished");
+          // TODO: Trigger transition to next page here
+          return;
+        }
+
+        currentRotation += spinSpeed;
+        element.style.transform = `rotate(${currentRotation}deg)`;
+        autoSpinAnimationID = requestAnimationFrame(autoSpin);
+    }
+
+    function handleEnd() {
+      isDragging = false;
+
+      if(!hasAutoSpun) {
+        hasAutoSpun = true;
+        autoSpin();
+      }
+
+    }
+     
   </script>
 
   
