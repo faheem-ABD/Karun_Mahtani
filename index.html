@@ -8,28 +8,43 @@
 </head>  
 <body class="bg-white overflow-hidden h-screen"> 
   <header class="sticky top-0 z-50 bg-white pt-2 pb-6 sm:pb-6 md:pt-4 lg:pt-5 lg:pb-10" >
-     
       <div class="relative max-w-screen-xl mx-auto px-4">
-      <!-- Container: relative (so absolute items inside behave properly) -->
-        <img src="./assets/Logo.png" alt="Karun Mahtani Logo" class="mx-auto block w-50 sm:w-64 md:w-80 lg:w-96 xl:w-[32rem] -mt-2" />
+        <img src="./assets/logoBlack.png" alt="Karun Mahtani Logo Black" class="mx-auto block w-41 sm:w-50 md:w-80 lg:w-96 xl:w-[32rem] -mt-2" />
       </div>
   </header>
   <section>
-    <div id="intro-vinyl">
-      <img src="./assets/disc.png" id="VinylDisc" alt="Vinyl Disc Spinning"
-         class="mx-auto mt-10 sm:mt-12 md:mt-16 lg:mt-8 2xl:mt-28
+    <div id="intro-vinyl" class="transition-all duration-700">
+      <img src="./assets/disc.png" id="VinylDisc" alt="Vinyl Disc Spinning" 
+         class=" touch-action-none mx-auto mt-10 sm:mt-12 md:mt-16 lg:mt-8 2xl:mt-28
          max-w-[24rem] sm:max-w-[20rem] md:max-w-[42rem] lg:max-w-[38rem] 
          max-h-[60vh] 2xl:max-h-[80vh]" />
     </div>
+
+    <!-- Black overlay for dramatic fade effect -->
+    <div id="transitionOverlay" class="pointer-events-none fixed inset-0 bg-black opacity-0 z-40 transition-opacity duration-700"></div>
 
     <div id="instructionText" class="hidden text-white text-center 
               text-lg bg-black bg-opacity-60 px-4 py-2 rounded shadow-md 
                mx-auto w-fit mt-4 sm:mt-6 md:mt-8 lg:mt-10 xl:mt-12 2xl:mt-14">
           [ Spin the disc ]
     </div>
-
-
   </section>
+
+  <section id="mainPage" class="hidden opacity-0 transition-opacity duration-700 bg-black min-h-screen flex flex-col items-center">
+      <header class="sticky top-0 z-50 bg-black pt-2 pb-6 sm:pb-6 md:pt-4 lg:pt-5 lg:pb-10 transition-opacity duration-700" >
+         <div class="relative max-w-screen-xl mx-auto px-4">
+           <img src="./assets/logoWhite.png" alt="Karun Mahtani Logo White" class="mx-auto block w-41 sm:w-50 md:w-80 lg:w-96 xl:w-[32rem] -mt-2" />
+         </div>
+      </header>
+
+      <!-- Placeholder for future menu or hero content -->
+      <div class="flex-grow flex items-center justify-center text-gray-300 text-xl">
+        <!-- You can add "Menu button here later" -->
+      [Main content coming soon...]
+      </div>
+  </section>
+
+  <audio id="introMusic" muted playsinline preload="auto" src="./assets/introMusic.mp3" ></audio>
 
 
   <script>
@@ -42,6 +57,7 @@
     let centerY = 0;
     let canSpin = true;
 
+    const audio = document.getElementById('introMusic');
     const element = document.getElementById('VinylDisc')
     const instructionText = document.getElementById('instructionText');
     
@@ -118,9 +134,32 @@
   
       if (elapsed > 5000) {
           cancelAnimationFrame(autoSpinAnimationID);
-          // Placeholder: call your page transition here later
-          console.log("Auto-spin finished");
-          // TODO: Trigger transition to next page here
+
+          const introSection = document.getElementById("intro-vinyl");
+          const header = document.querySelector("header");
+          const overlay = document.getElementById("transitionOverlay");
+          const mainPage = document.getElementById("mainPage");
+
+
+          // 1. Fade out vinyl and logo with motion
+          introSection.classList.add("opacity-0", "scale-90", "translate-y-10", "transition-all", "duration-700");
+          header.classList.add("opacity-0", "transition-opacity", "duration-700");
+          // 2. Fade in black overlay
+          overlay.classList.add("opacity-100");
+
+          // After fade out, hide vinyl and show mainPage
+          setTimeout(() => {
+            introSection.classList.add("hidden");
+            header.classList.add("hidden");
+            mainPage.classList.remove("hidden");
+            mainPage.classList.add("opacity-100"); // fade in
+
+            fadeOutAudio(audio)
+
+            overlay.classList.remove("opacity-100"); // fade out overlay
+            overlay.classList.add("opacity-0"); // transition will apply
+           }, 800);
+
           return;
         }
 
@@ -129,18 +168,34 @@
         autoSpinAnimationID = requestAnimationFrame(autoSpin);
     }
 
+    function fadeOutAudio(audio) {
+      let volume = audio.volume;
+      const fade = setInterval(() => {
+        if (volume > 0.05) {
+          volume -= 0.05;
+          audio.volume = volume;
+        } else {
+          clearInterval(fade);
+          audio.pause();
+          audio.currentTime = 0;
+          audio.volume = 1.0; // Reset volume for next playback
+        }
+      }, 100); // fade interval in milliseconds
+    }
+
     function handleEnd() {
       if (!canSpin) return;
       isDragging = false;
       canSpin = false;
+      audio.muted = false;
+      audio.currentTime = 0;
+      audio.play();
       autoSpin();
       }
 
-
-     
+ 
   </script>
 
-  
 
 
 </body>
