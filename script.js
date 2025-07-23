@@ -1,3 +1,5 @@
+const testMode = true;
+
 let isDragging = false;
     let lastAngle = 0;
     let currentRotation = 0;
@@ -9,13 +11,19 @@ let isDragging = false;
     const audio = document.getElementById('introMusic');
     const element = document.getElementById('VinylDisc')
     const instructionText = document.getElementById('instructionText');
+
+
+    if (!testMode) {
+
+        element.addEventListener("mousedown", handleStart); 
+        element.addEventListener("touchstart", handleStart, { passive: false });
+        element.addEventListener("mouseup", handleEnd);
+        element.addEventListener("touchend", handleEnd);
+        element.addEventListener("mousemove", handleMove);
+        element.addEventListener("touchmove", handleMove);
+
+    }
     
-    element.addEventListener("mousedown", handleStart); 
-    element.addEventListener("touchstart", handleStart, { passive: false });
-    element.addEventListener("mouseup", handleEnd);
-    element.addEventListener("touchend", handleEnd);
-    element.addEventListener("mousemove", handleMove);
-    element.addEventListener("touchmove", handleMove);
 
     function handleStart(event) {
       if (!canSpin) return;
@@ -141,3 +149,27 @@ let isDragging = false;
       audio.play();
       autoSpin();
       }
+
+    window.addEventListener("load", () => {
+  if (testMode) {
+    // Hide intro UI elements
+    document.getElementById("intro-vinyl").classList.add("hidden");
+    document.getElementById("instructionText").classList.add("hidden");
+    document.getElementById("transitionOverlay").classList.add("hidden");
+
+    // Hide the intro header with black logo
+    document.getElementById("introHeader").classList.add("hidden");
+
+    // Show mainPage and its header (white logo)
+    const mainPage = document.getElementById("mainPage");
+    mainPage.classList.remove("hidden");
+    mainPage.classList.add("opacity-100");
+
+    // Enable scrolling on body for main page
+    document.body.classList.remove("overflow-hidden");
+    document.body.style.height = "auto";
+  }
+});
+
+
+
