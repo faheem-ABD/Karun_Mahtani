@@ -1,3 +1,7 @@
+const devMode = false; // Set to false before deploying
+
+
+
 let isDragging = false;
 let lastAngle = 0;
 let currentRotation = 0;
@@ -80,7 +84,9 @@ function handleEnd() {
   audio.volume = 1;
   audio.play();
 
-  autoSpin();
+  if (!devMode) {
+    autoSpin();
+  }
 }
 
 let autoSpinAnimationID = null;
@@ -103,6 +109,7 @@ function autoSpin() {
 function startTransitionToMain() {
   const vinylSection = document.getElementById("intro-vinyl");
   const introHeader = document.getElementById("introHeader");
+  const mainHeader = document.getElementById("mainPageHeader");
   const overlay = document.getElementById("transitionOverlay");
   const mainPage = document.getElementById("mainPage");
 
@@ -123,11 +130,15 @@ function startTransitionToMain() {
     overlay.classList.remove("opacity-100");
     overlay.classList.add("opacity-0");
 
+    mainHeader.classList.remove("hidden");
+    mainHeader.classList.add("opacity-100");
+
     mainPage.classList.remove("hidden");
     mainPage.classList.add("opacity-100", "scale-100");
 
     document.body.classList.remove("overflow-hidden");
     document.body.style.height = "auto";
+    document.body.style.overflow = "auto";
 
     fadeOutAudio(audio);
   }, 1200);
@@ -147,3 +158,11 @@ function fadeOutAudio(audio) {
     }
   }, 100);
 }
+
+// 👇 Automatically skip intro if devMode is enabled
+document.addEventListener("DOMContentLoaded", () => {
+  if (devMode) {
+    console.log("✅ Dev mode: Skipping intro animation and showing main page");
+    startTransitionToMain();
+  }
+});
