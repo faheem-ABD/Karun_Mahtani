@@ -1,4 +1,4 @@
-const devMode = false; // Change to false when deploying
+const devMode = true; // Change to false when deploying
 
 const audio = document.getElementById('introMusic');
 const element = document.getElementById('VinylDisc');
