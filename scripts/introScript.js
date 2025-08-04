@@ -1,6 +1,14 @@
-const devMode = true; // Set to false before deploying
+const devMode = false; // Change to false when deploying
 
+const audio = document.getElementById('introMusic');
+const element = document.getElementById('VinylDisc');
+const instructionText = document.getElementById('instructionText');
 
+const introVinylSection = document.getElementById('intro-vinyl-section');
+const introHeader = document.getElementById('introHeader');
+const mainHeader = document.getElementById('mainPageHeader');
+const mainPage = document.getElementById('mainPage');
+const overlay = document.getElementById('transitionOverlay');
 
 let isDragging = false;
 let lastAngle = 0;
@@ -10,27 +18,12 @@ let centerX = 0;
 let centerY = 0;
 let canSpin = true;
 
-
-const audio = document.getElementById('introMusic');
-const element = document.getElementById('VinylDisc');
-const instructionText = document.getElementById('instructionText');
-
 element.addEventListener("mousedown", handleStart);
 element.addEventListener("touchstart", handleStart, { passive: false });
 element.addEventListener("mouseup", handleEnd);
 element.addEventListener("touchend", handleEnd);
 element.addEventListener("mousemove", handleMove);
 element.addEventListener("touchmove", handleMove);
-
-
-const menuIcon = document.getElementById('menuIcon');
-const menuOverlay = document.getElementById('menuOverlay');
-
-menuIcon.addEventListener("click", callbackFunction);
-
-
-
-
 
 function handleStart(event) {
   if (!canSpin) return;
@@ -97,6 +90,9 @@ function handleEnd() {
 
   if (!devMode) {
     autoSpin();
+  } else {
+    // Dev mode skips intro and directly shows main page
+    showMainPage();
   }
 }
 
@@ -124,16 +120,16 @@ function startTransitionToMain() {
   const overlay = document.getElementById("transitionOverlay");
   const mainPage = document.getElementById("mainPage");
 
-  // Fade out vinyl and logo
+  // Animate fading out the intro elements
   vinylSection.classList.add("opacity-0", "scale-90", "translate-y-10", "transition-all", "duration-700", "ease-in-out");
   introHeader.classList.add("opacity-0", "transition-opacity", "duration-700");
 
-  // Fade in black overlay
+  // Fade in black overlay after 400ms
   setTimeout(() => {
     overlay.classList.add("opacity-100");
   }, 400);
 
-  // Switch to main page
+  // After 1200ms, hide intro and show main page content
   setTimeout(() => {
     vinylSection.classList.add("hidden");
     introHeader.classList.add("hidden");
@@ -170,23 +166,36 @@ function fadeOutAudio(audio) {
   }, 100);
 }
 
-function callbackFunction() {
-  menuOverlay.classList.toggle("hidden");
 
-  if (menuOverlay.classList.contains("hidden")) {
-    menuOverlay.classList.remove("opacity-100");
-    menuOverlay.classList.add("opacity-0");
-  } else {
-    menuOverlay.classList.remove("opacity-0");
-    menuOverlay.classList.add("opacity-100");
-  }
+function showMainPage() {
+  // Fade out intro section and fade in main content
+
+  // Add fade-out classes
+  introVinylSection.classList.add('opacity-0', 'pointer-events-none');
+  introHeader.classList.add('opacity-0', 'pointer-events-none');
+
+  // Show main header and main page
+  mainHeader.classList.remove('hidden');
+  mainPage.classList.remove('hidden');
+
+  // Trigger fade-in with delay
+  setTimeout(() => {
+    mainHeader.classList.remove('opacity-0');
+    mainPage.classList.remove('opacity-0');
+    mainPage.classList.remove('scale-95');
+  }, 50);
+
+  // Optionally, remove intro section from DOM after animation
+  setTimeout(() => {
+    introVinylSection.style.display = 'none';
+    introHeader.style.display = 'none';
+  }, 1100);
 }
 
-
-// 👇 Automatically skip intro if devMode is enabled
+// If devMode is true, skip intro on DOM load
 document.addEventListener("DOMContentLoaded", () => {
   if (devMode) {
-    console.log("✅ Dev mode: Skipping intro animation and showing main page");
-    startTransitionToMain();
+    console.log("Dev mode enabled: skipping intro animation.");
+    showMainPage();
   }
 });
