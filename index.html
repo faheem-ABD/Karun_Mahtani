@@ -33,14 +33,14 @@
     </div>
   </section>
 
-    <header id="mainPageHeader" class=" hidden fixed top-0 left-0 right-0 w-full z-50 bg-black pt-2 pb-6 sm:pb-6 md:pt-4 lg:pt-5 lg:pb-10 
+    <header id="mainPageHeader" class="hidden fixed top-0 left-0 right-0 w-full z-50 bg-black pt-2 pb-6 sm:pb-6 md:pt-4 lg:pt-5 lg:pb-10 
         transition-opacity duration-700" >
 
          <div class="relative max-w-screen-3xl mx-auto px-4 px-4 flex items-center justify-between">
             <img src="./assets/logoWhite.png"  alt="Karun Mahtani Logo White" 
               class="mx-auto block w-40 sm:w-50 md:w-80 lg:w-96 xl:w-[32rem] mt-4 sm:-mt-2" /> 
           
-              <img src="./assets/menuW.png"  alt="Menu Button" id="menuIcon"
+              <img src="./assets/menuW.png"  alt="MenuButton" id="menuIcon"
                  class="w-4 sm:w-6 md:w-14 lg:w-12 xl:w-14 cursor-pointer z-50 mt-3 sm:mt-0" />    
           </div>                         
       </header>
@@ -49,12 +49,45 @@
       class="hidden opacity-0 scale-95 transition-all duration-1000 ease-in-out min-h-screen bg-no-repeat bg-cover bg-center"
       style="background-image: url('./assets/mainImage.png');">
 
+   
+
     
       <div class="pt-[120px] sm:pt-[80px] px-0 sm:px-4"> </div>
       <!-- Optional extra content for scrolling -->
   <div class="h-[120vh]"></div>
-
   </section>
+
+   <div id="menuOverlay" class="hidden opacity-0 fixed inset-0 z-60 bg-black bg-opacity-70
+                          transition-opacity duration-500 ease-in-out flex flex-col 
+                          justify-start sm:justify-center items-center h-full px-6 pt-40 sm:pt-0">
+
+      <ul class="text-white text-2xl sm:text-4xl space-y-6 text-center">
+         <li class="cursor-pointer px-6 py-3 rounded-md
+           hover:bg-white hover:bg-opacity-20
+           focus:bg-white focus:bg-opacity-20
+           active:bg-white active:bg-opacity-30
+           transition-colors duration-300 ease-in-out"> 
+            Contact</li>
+        <li class="cursor-pointer px-6 py-3 rounded-md
+           hover:bg-white hover:bg-opacity-20
+           focus:bg-white focus:bg-opacity-20
+           active:bg-white active:bg-opacity-30
+           transition-colors duration-300 ease-in-out"> 
+            Playlist</li>
+        <li class="cursor-pointer px-6 py-3 rounded-md
+           hover:bg-white hover:bg-opacity-20
+           focus:bg-white focus:bg-opacity-20
+           active:bg-white active:bg-opacity-30
+           transition-colors duration-300 ease-in-out"> 
+            Socials</li>
+        <li class="cursor-pointer px-6 py-3 rounded-md
+           hover:bg-white hover:bg-opacity-20
+           focus:bg-white focus:bg-opacity-20
+           active:bg-white active:bg-opacity-30
+           transition-colors duration-300 ease-in-out"> 
+            Dates</li>
+      </ul>
+    </div>
 
   <audio id="introMusic" muted playsinline preload="auto" src="./assets/introMusic.mp3" ></audio>
   <script src="./script.js"></script>

@@ -1,4 +1,4 @@
-const devMode = false; // Set to false before deploying
+const devMode = true; // Set to false before deploying
 
 
 
@@ -10,6 +10,7 @@ let centerX = 0;
 let centerY = 0;
 let canSpin = true;
 
+
 const audio = document.getElementById('introMusic');
 const element = document.getElementById('VinylDisc');
 const instructionText = document.getElementById('instructionText');
@@ -20,6 +21,16 @@ element.addEventListener("mouseup", handleEnd);
 element.addEventListener("touchend", handleEnd);
 element.addEventListener("mousemove", handleMove);
 element.addEventListener("touchmove", handleMove);
+
+
+const menuIcon = document.getElementById('menuIcon');
+const menuOverlay = document.getElementById('menuOverlay');
+
+menuIcon.addEventListener("click", callbackFunction);
+
+
+
+
 
 function handleStart(event) {
   if (!canSpin) return;
@@ -158,6 +169,19 @@ function fadeOutAudio(audio) {
     }
   }, 100);
 }
+
+function callbackFunction() {
+  menuOverlay.classList.toggle("hidden");
+
+  if (menuOverlay.classList.contains("hidden")) {
+    menuOverlay.classList.remove("opacity-100");
+    menuOverlay.classList.add("opacity-0");
+  } else {
+    menuOverlay.classList.remove("opacity-0");
+    menuOverlay.classList.add("opacity-100");
+  }
+}
+
 
 // 👇 Automatically skip intro if devMode is enabled
 document.addEventListener("DOMContentLoaded", () => {
