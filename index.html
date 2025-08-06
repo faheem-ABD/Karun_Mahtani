@@ -5,6 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Karun Mahtani - Intro</title>
   <script src="https://cdn.tailwindcss.com"></script>
+   <style>
+    body.fade-out {
+      opacity: 0;
+      transition: opacity 700ms ease-in-out;
+    }
+  </style>
+
 </head>
 <body class="bg-white overflow-hidden h-screen">
 
@@ -28,7 +35,7 @@
     </div>
 
     <!-- Fade overlay -->
-    <div id="transitionOverlay" class="pointer-events-none fixed inset-0 bg-black opacity-0 z-40"></div>
+    <div id="transitionOverlay" class="pointer-events-none fixed inset-0 opacity-0 z-40"></div>
 
     <!-- Instruction -->
     <div id="instructionText" class="hidden text-white text-center 
@@ -39,6 +46,7 @@
   </section>
 
   <audio id="introMusic" muted playsinline preload="auto" src="./assets/introMusic.mp3"></audio>
+  <script src="./scripts/introScript.js"></script>
 
 </body>
 </html>

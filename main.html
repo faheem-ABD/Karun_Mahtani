@@ -6,7 +6,7 @@
   <title>Karun Mahtani MainPage</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-white">
+<body class="bg-white opacity-0 transition-opacity duration-100">
  <header id="mainPageHeader" 
         class="bg-white fixed top-0 left-0 right-0 w-full z-50 
                pt-1 pb-2 sm:pb-3 md:pt-2 lg:pt-3 lg:pb-5 
@@ -26,7 +26,7 @@
 </section>
 
 
-  <div id="menuOverlay" class="fixed inset-0 z-60 bg-black bg-opacity-70
+  <div id="menuOverlay" class="fixed inset-0 z-50 bg-opacity-70
                         transition-opacity duration-500 ease-in-out flex flex-col 
                         justify-start sm:justify-center items-center h-full px-6 pt-60 sm:pt-0">
     <ul class="text-white text-2xl sm:text-4xl space-y-6 text-center">
@@ -94,6 +94,8 @@
     </div>
   </div>
 </section>
+<script src="./scripts/introScript.js"></script>
+<script src="./scripts/mainScript.js"></script>
 
 </body>
 </html>
