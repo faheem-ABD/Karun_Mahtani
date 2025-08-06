@@ -1,6 +1,31 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Fade in the page
   setTimeout(() => {
     document.body.classList.remove('opacity-0');
     document.body.classList.add('opacity-100');
-  }, 50); // tiny delay for smoothness
+  }, 50);
+
+  // Menu toggle logic
+  const menuIcon = document.getElementById('menuIcon');
+  const overlayMenu = document.getElementById('overlayMenu');
+
+  let menuOpen = false;
+
+  const toggleMenu = () => {
+    menuOpen = !menuOpen;
+
+    if (menuOpen) {
+      overlayMenu.classList.remove('opacity-0', 'pointer-events-none');
+      overlayMenu.classList.add('opacity-100');
+
+      // Optional: rotate or change icon
+      // menuIcon.classList.add('rotate-90');
+      // menuIcon.src = './assets/closeB.png'; // if you have a close icon
+    } else {
+      overlayMenu.classList.remove('opacity-100');
+      overlayMenu.classList.add('opacity-0', 'pointer-events-none');
+    }
+  };
+
+  menuIcon.addEventListener('click', toggleMenu);
 });

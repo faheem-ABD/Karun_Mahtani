@@ -11,9 +11,20 @@
     transition-duration: 1ms !important; /* Faster fade-in */
     transition-timing-function: ease-in-out !important;
   }
+  .menu-link {
+    position: relative;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+  }
+  .menu-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.4), 0 0 20px rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+  }
 </style>
 
-
+ 
 </head>
 <body class="bg-white opacity-0 transition-opacity duration-50">
  <header id="mainPageHeader" 
@@ -23,16 +34,30 @@
   <div class="relative max-w-screen-3xl mx-auto px-4 flex items-center justify-between">
     <img src="./assets/logoBlack.png" alt="Karun Mahtani Logo White" 
          class="mx-auto block w-[5.5rem] sm:w-[7.7rem] md:w-[11rem] lg:w-[13.2rem] xl:w-[15.4rem] mt-2 sm:-mt-1" /> 
+
     <img src="./assets/menuB.png" alt="MenuButton" id="menuIcon"
-         class="w-4 sm:w-6 md:w-8 lg:w-8 xl:w-9 cursor-pointer z-50 mt-2 sm:mt-0" />    
+         class="w-4 sm:w-6 md:w-8 lg:w-8 xl:w-9 cursor-pointer z-50 mt-2 sm:mt-0 transition-transform duration-300" />    
   </div>                         
 </header>
 
-<section class="relative min-h-[60vh] md:min-h-[600px] lg:min-h-[800px]">
+<section class="relative min-h-[60vh] md:min-h-[50vh] lg:min-h-[400px] xl:min-h-[600px] 2xl:min-h-[800px]">
   <img src="./assets/mainImage.png"
        alt="Main Visual"
        class="absolute inset-0 w-full h-full object-cover object-center" />
 </section>
+
+<!-- Overlay Menu -->
+<div id="overlayMenu" 
+     class="fixed inset-0 bg-black bg-opacity-80 text-white z-40 flex flex-col items-center 
+     justify-center space-y-4 text-xl sm:text-2xl md:text-3xl opacity-0 pointer-events-none 
+     transition-opacity duration-500">
+  
+  <a href="contact.html" class="menu-link">Contact</a>
+  <a href="dates.html" class="menu-link">Tour Dates</a>
+  <a href="playlist.html" class="menu-link">Playlist</a>
+  <a href="socials.html" class="menu-link">Socials</a>
+</div>
+
 
   <section id="latestNews" class="bg-white py-10 px-4 sm:px-8 lg:px-16">
   <h2 class="text-2xl sm:text-3xl font-bold text-center mb-8">Latest News</h2>
