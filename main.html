@@ -5,8 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Karun Mahtani MainPage</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+  body {
+    transition-property: opacity !important;
+    transition-duration: 1ms !important; /* Faster fade-in */
+    transition-timing-function: ease-in-out !important;
+  }
+</style>
+
+
 </head>
-<body class="bg-white opacity-0 transition-opacity duration-100">
+<body class="bg-white opacity-0 transition-opacity duration-50">
  <header id="mainPageHeader" 
         class="bg-white fixed top-0 left-0 right-0 w-full z-50 
                pt-1 pb-2 sm:pb-3 md:pt-2 lg:pt-3 lg:pb-5 
