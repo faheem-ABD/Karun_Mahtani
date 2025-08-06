@@ -3,30 +3,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Karun Mahtani</title>
+  <title>Karun Mahtani - Intro</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-white overflow-hidden h-screen">
 
-  <!-- Intro Section -->
-  <header id="introHeader" class="sticky top-0 z-50 bg-white pt-2 pb-6 sm:pb-6 md:pt-4 lg:pt-5 lg:pb-10">   
-    <div class="relative max-w-screen-xl mx-auto px-4">
-      <img src="./assets/logoBlack.png" alt="Karun Mahtani Logo Black" 
-           class="mx-auto block w-40 sm:w-50 md:w-80 lg:w-96 xl:w-[32rem] mt-4 sm:-mt-2" />
+  <!-- Intro Header -->
+  <header class="sticky top-0 z-50 left-0 right-0 w-full
+               pt-1 pb-2 sm:pb-3 md:pt-2 lg:pt-3 lg:pb-5">
+    <div class="relative max-w-screen-3xl mx-auto px-4 flex items-center justify-between">
+      <img src="./assets/logoBlack.png" alt="Karun Mahtani Logo" 
+           class="mx-auto block w-[5.5rem] sm:w-[7rem] md:w-[9rem] lg:w-[11rem] xl:w-[13rem] mt-2 sm:-mt-1" /> 
     </div>
   </header>
 
+  <!-- Vinyl Disc Section -->
   <section id="intro-vinyl-section">
-    <div id="intro-vinyl" class="transition-all duration-700"> 
+    <div id="intro-vinyl"> 
       <img src="./assets/disc.png" id="VinylDisc" alt="Vinyl Disc Spinning" 
-           class="touch-action-none mx-auto mt-40 sm:mt-40 md:mt-16 lg:mt-8 2xl:mt-28
-           max-w-[20rem] sm:max-w-[20rem] md:max-w-[42rem] lg:max-w-[38rem] 
-           max-h-[60vh] 2xl:max-h-[80vh]" />
+          class="touch-action-none mx-auto mt-24 sm:mt-28 md:mt-20 lg:mt-32 2xl:mt-40
+          max-w-[20rem] sm:max-w-[20rem] md:max-w-[42rem] lg:max-w-[38rem] 
+          max-h-[60vh] 2xl:max-h-[80vh]" />
+
     </div>
 
-    <!-- Black overlay for dramatic fade effect -->
-    <div id="transitionOverlay" class="pointer-events-none fixed inset-0 bg-black opacity-0 z-40 transition-opacity duration-1000"></div>
+    <!-- Fade overlay -->
+    <div id="transitionOverlay" class="pointer-events-none fixed inset-0 bg-black opacity-0 z-40"></div>
 
+    <!-- Instruction -->
     <div id="instructionText" class="hidden text-white text-center 
                 text-lg bg-black bg-opacity-60 px-4 py-2 rounded shadow-md 
                 mx-auto w-fit mt-4 sm:mt-6 md:mt-8 lg:mt-10 xl:mt-12 2xl:mt-14">
@@ -34,54 +38,7 @@
     </div>
   </section>
 
-  <!-- Main Section - hidden initially -->
-  <header id="mainPageHeader" class="bg-white hidden fixed top-0 left-0 right-0 w-full z-50 pt-2 pb-6 sm:pb-6 md:pt-4 lg:pt-5 lg:pb-10 
-        transition-opacity duration-700" >
-    <div class="relative max-w-screen-3xl mx-auto px-4 flex items-center justify-between">
-      <img src="./assets/logoBlack.png" alt="Karun Mahtani Logo White" 
-           class="mx-auto block w-40 sm:w-50 md:w-80 lg:w-96 xl:w-[32rem] mt-4 sm:-mt-2" /> 
-      <img src="./assets/menuB.png" alt="MenuButton" id="menuIcon"
-           class="w-4 sm:w-6 md:w-14 lg:w-12 xl:w-14 cursor-pointer z-50 mt-3 sm:mt-0" />    
-    </div>                         
-  </header>
-
-  <section id="mainPage" 
-      class="hidden opacity-0 scale-95 transition-all duration-1000 ease-in-out min-h-screen bg-no-repeat bg-cover bg-center"
-      style="background-image: url('./assets/mainImage.png');">
-    <div class="pt-[120px] sm:pt-[80px] px-0 sm:px-4"></div>
-  </section>
-
-  <div id="menuOverlay" class="hidden opacity-0 fixed inset-0 z-60 bg-black bg-opacity-70
-                        transition-opacity duration-500 ease-in-out flex flex-col 
-                        justify-start sm:justify-center items-center h-full px-6 pt-40 sm:pt-0">
-    <ul class="text-white text-2xl sm:text-4xl space-y-6 text-center">
-      <li class="cursor-pointer px-6 py-3 rounded-md
-         hover:bg-white hover:bg-opacity-20
-         focus:bg-white focus:bg-opacity-20
-         active:bg-white active:bg-opacity-30
-         transition-colors duration-300 ease-in-out" data-target="contact.html">Contact</li>
-      <li class="cursor-pointer px-6 py-3 rounded-md
-         hover:bg-white hover:bg-opacity-20
-         focus:bg-white focus:bg-opacity-20
-         active:bg-white active:bg-opacity-30
-         transition-colors duration-300 ease-in-out" data-target="playlist.html">Playlist</li>
-      <li class="cursor-pointer px-6 py-3 rounded-md
-         hover:bg-white hover:bg-opacity-20
-         focus:bg-white focus:bg-opacity-20
-         active:bg-white active:bg-opacity-30
-         transition-colors duration-300 ease-in-out" data-target="socials.html">Socials</li>
-      <li class="cursor-pointer px-6 py-3 rounded-md
-         hover:bg-white hover:bg-opacity-20
-         focus:bg-white focus:bg-opacity-20
-         active:bg-white active:bg-opacity-30
-         transition-colors duration-300 ease-in-out" data-target="dates.html">Dates</li>
-    </ul>
-  </div>
-
   <audio id="introMusic" muted playsinline preload="auto" src="./assets/introMusic.mp3"></audio>
-
-  <script src="./scripts/introScript.js"></script>
-  <script src="./scripts/homeScript.js"></script>
 
 </body>
 </html>
