@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // After fade out, navigate
         setTimeout(() => {
           window.location.href = href;
-        }, 300); // same duration as fade-out
+        }, 250); // same duration as fade-out
       });
     });
   }
