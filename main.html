@@ -7,9 +7,18 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
   body {
-    transition-property: opacity !important;
-    transition-duration: 1ms !important; /* Faster fade-in */
-    transition-timing-function: ease-in-out !important;
+  transition: opacity 0.3s ease-in-out;
+  }
+  .fade-out {
+    opacity: 0 !important;
+  }
+  .opacity-0 {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .opacity-100 {
+    opacity: 1;
+    pointer-events: auto;
   }
   .menu-link {
     position: relative;
@@ -26,7 +35,7 @@
 
  
 </head>
-<body class="bg-white opacity-0 transition-opacity duration-50">
+<body class="bg-white opacity-0 transition-opacity duration-300">
  <header id="mainPageHeader" 
         class="bg-white fixed top-0 left-0 right-0 w-full z-50 
                pt-1 pb-2 sm:pb-3 md:pt-2 lg:pt-3 lg:pb-5 
@@ -53,7 +62,7 @@
      transition-opacity duration-500">
   
   <a href="contact.html" class="menu-link">Contact</a>
-  <a href="dates.html" class="menu-link">Tour Dates</a>
+  <a href="dates.html" class="menu-link">Dates</a>
   <a href="playlist.html" class="menu-link">Playlist</a>
   <a href="socials.html" class="menu-link">Socials</a>
 </div>
