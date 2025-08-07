@@ -20,6 +20,7 @@
   }
   </style>
 </head>
+
 <body class="bg-white opacity-0 transition-opacity duration-100">
   <div id="contactPage" class="contact-container">
     <!-- Main Section -->
@@ -32,7 +33,146 @@
          class="w-4 sm:w-6 md:w-8 lg:w-8 xl:w-9 cursor-pointer z-50 mt-2 sm:mt-0 transition-transform duration-300" />    
   </div>           
     </header>
+
+    <!-- SECTION 1: Intro -->
+<section class="bg-gray-100 pt-40 pb-[7.5rem] px-6 text-center">
+  <h1 class="text-2xl md:text-3xl font-bold text-black leading-snug">
+    Are you a Producer, Event Manager, Artist, Music Lover,<br />
+    Party Animal or a Workaholic?
+  </h1>
+</section>
+
+<!-- IMAGE BREAK BETWEEN SECTIONS -->
+<div class="bg-gray-100">
+  <img src="./assets/music.png" alt="Creative visual" 
+    class="mx-auto w-[300px] md:w-[360px] lg:w-[400px] xl:w-[500px] py-12"  />
+</div>
+
+<!-- SECTION 2: Email -->
+<section class="bg-gray-100 pt-32 pb-24 px-6 text-center">
+  <p class="text-1xl md:text-2xl font-semibold mb-4 text-gray-800">
+    Send us a mail if you live in the XXI century
+  </p>
+  <a href="mailto:karunamahtani@gmail.com" class="text-black underline text-lg">
+    karunamahtani@gmail.com
+  </a>
+</section>
+
+
+ <!-- SECTION 3: Form Section -->
+    <section class="bg-white py-24 px-6" style="font-family: 'Courier New', Courier, monospace;">
+      <div class="max-w-3xl mx-auto border-4 border-black rounded-xl p-10 bg-cream-50 shadow-[8px_8px_0_0_rgba(0,0,0,0.8)]">
+        <h2 class="text-1xl md:text-2xl font-semibold text-center mb-8 text-black tracking-widest drop-shadow-[2px_2px_0_rgba(255,0,128,0.7)]">
+          JUST USE THIS FORM, IF YOU'RE LAZY</h2>
+
+        <form action="https://formspree.io/f/mldloblb" method="POST" 
+        id="contactForm" class="max-w-xl mx-auto space-y-8 font-sans text-black">
+
+          <!-- Name -->
+      <div>
+        <label for="name" class="block text-lg font-semibold">Name *</label>
+        <input type="text" name="name" id="name" required
+               class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-indigo-300" />
+      </div>
+
+      <!-- Email -->
+      <div>
+        <label for="email" class="block text-lg font-semibold">Email *</label>
+        <input type="email" name="email" id="email" required
+               class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-300" />
+      </div>
+
+      <!-- City -->
+      <div>
+        <label for="city" class="block text-lg font-semibold">City *</label>
+        <input type="text" name="city" id="city" required
+               class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-purple-300" />
+      </div>
+
+      <!-- Country -->
+      <div>
+        <label for="country" class="block text-lg font-semibold">Country *</label>
+        <select name="country" id="country" required
+                class="w-full px-4 py-2 border border-gray-300 rounded bg-white">
+          <option value="">Loading countries...</option>
+        </select>
+      </div>
+
+      <!-- Reason -->
+      <div>
+        <label for="reason" class="block text-lg font-semibold">Reason for writing *</label>
+        <select name="reason" id="reason" required
+                class="w-full px-4 py-2 border border-gray-300 rounded bg-white">
+          <option value="">Select reason</option>
+          <option value="Ask a question">Ask a question</option>
+          <option value="General">General</option>
+          <option value="Collaborate">Collaborate</option>
+        </select>
+      </div>
+
+      <!-- Message -->
+      <div>
+        <label for="message" class="block text-lg font-semibold">Message *</label>
+        <textarea name="message" id="message" rows="5" required
+                  class="w-full px-4 py-2 border border-gray-300 rounded resize-none focus:outline-none focus:ring-2 focus:ring-green-300"></textarea>
+      </div>
+
+      <!-- Terms -->
+      <div class="flex items-start space-x-2">
+        <input type="checkbox" id="terms" name="terms" required class="mt-1" />
+        <label for="terms" class="text-sm">
+           I agree to the <button type="button" id="openTermsModal" 
+           class="underline text-blue-600 hover:text-blue-800">terms and conditions</button>
+        </label>
+      </div>
+
+          <!-- Submit -->
+      <button type="submit"
+              class="bg-black text-white px-6 py-3 rounded shadow hover:bg-gray-800 transition">
+        Submit ✉️
+      </button>
+    </form>
+  </div>
+</section>
+
   </div>
 <script src="./scripts/mainScript.js"></script>
+<script src="./scripts/contactScripts.js"></script>
+
+
+<!-- Terms and Conditions Modal -->
+<div id="termsModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+  <div class="bg-white max-w-3xl w-11/12 max-h-[80vh] overflow-y-auto rounded-lg p-6 relative shadow-lg">
+    <h2 class="text-xl font-bold mb-4">Terms and Conditions</h2>
+    <div class="text-sm space-y-4">
+      <p><strong>1. Acceptance of Terms</strong><br>
+        By using this form and submitting your information, you agree to these Terms and Conditions.</p>
+
+      <p><strong>2. Privacy</strong><br>
+        We respect your privacy. Personal data collected is used solely to respond to your inquiries and will not be shared with third parties except as required by law.</p>
+
+      <p><strong>3. Data Protection (GDPR for Europe)</strong><br>
+        If you are located in the European Economic Area (EEA), you have rights under GDPR including access, correction, and deletion of your personal data. Contact us for any requests.</p>
+
+      <p><strong>4. Use of Information</strong><br>
+        Information you submit may be used to improve our services, communicate with you, and comply with legal obligations.</p>
+
+      <p><strong>5. No Warranty</strong><br>
+        The information and services are provided "as is" without warranties of any kind.</p>
+
+      <p><strong>6. Liability</strong><br>
+        We are not liable for damages arising from use of this form or any linked services.</p>
+
+      <p><strong>7. Contact</strong><br>
+        For questions about privacy or terms, please reach out to <a href="mailto:karunamahtani@gmail.com" class="text-blue-600 underline">karunamahtani@gmail.com</a>.</p>
+
+      <p><strong>8. Changes to Terms</strong><br>
+        We may update these Terms periodically. Continued use constitutes acceptance of any changes.</p>
+    </div>
+    <button id="closeTermsModal" class="absolute top-4 right-4 text-gray-700 hover:text-black font-bold text-lg">&times;</button>
+  </div>
+</div>
+
 </body>
 </html>
+
