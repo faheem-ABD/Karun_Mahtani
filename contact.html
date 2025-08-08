@@ -45,7 +45,7 @@
 <!-- IMAGE BREAK BETWEEN SECTIONS -->
 <div class="bg-gray-100">
   <img src="./assets/music.png" alt="Creative visual" 
-    class="mx-auto w-[300px] md:w-[360px] lg:w-[400px] xl:w-[500px] py-12"  />
+    class="mx-auto w-[200px] md:w-[300px] lg:w-[400px] xl:w-[500px] py-1">
 </div>
 
 <!-- SECTION 2: Email -->
@@ -60,49 +60,49 @@
 
 
  <!-- SECTION 3: Form Section -->
-    <section class="bg-white py-24 px-6" style="font-family: 'Courier New', Courier, monospace;">
-      <div class="max-w-3xl mx-auto border-4 border-black rounded-xl p-10 bg-cream-50 shadow-[8px_8px_0_0_rgba(0,0,0,0.8)]">
-        <h2 class="text-1xl md:text-2xl font-semibold text-center mb-8 text-black tracking-widest drop-shadow-[2px_2px_0_rgba(255,0,128,0.7)]">
-          JUST USE THIS FORM, IF YOU'RE LAZY</h2>
+<section class="bg-white py-16 px-4 sm:px-6 md:px-12" style="font-family: 'Courier New', Courier, monospace;">
+  <div class="max-w-full sm:max-w-2xl md:max-w-3xl mx-auto border-4 border-black rounded-xl p-6 sm:p-8 md:p-10 bg-cream-50 shadow-[8px_8px_0_0_rgba(0,0,0,0.8)]">
+    <h2 class="text-lg sm:text-xl md:text-2xl font-bold text-center mb-8 text-black tracking-widest">
+      JUST USE THIS FORM, IF YOU'RE LAZY
+    </h2>
 
-        <form action="https://formspree.io/f/mldloblb" method="POST" 
-        id="contactForm" class="max-w-xl mx-auto space-y-8 font-sans text-black">
+    <form action="https://formspree.io/f/mldloblb" method="POST" id="contactForm" class="max-w-full sm:max-w-xl mx-auto space-y-6 sm:space-y-8 font-sans text-black">
 
-          <!-- Name -->
+      <!-- Name -->
       <div>
-        <label for="name" class="block text-lg font-semibold">Name *</label>
+        <label for="name" class="block text-lg font-semibold mb-1">Name *</label>
         <input type="text" name="name" id="name" required
-               class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-indigo-300" />
+               class="w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-indigo-300 text-sm sm:text-base" />
       </div>
 
       <!-- Email -->
       <div>
-        <label for="email" class="block text-lg font-semibold">Email *</label>
+        <label for="email" class="block text-lg font-semibold mb-1">Email *</label>
         <input type="email" name="email" id="email" required
-               class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-300" />
+               class="w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-300 text-sm sm:text-base" />
       </div>
 
       <!-- City -->
       <div>
-        <label for="city" class="block text-lg font-semibold">City *</label>
+        <label for="city" class="block text-lg font-semibold mb-1">City *</label>
         <input type="text" name="city" id="city" required
-               class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-purple-300" />
+               class="w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-purple-300 text-sm sm:text-base" />
       </div>
 
       <!-- Country -->
       <div>
-        <label for="country" class="block text-lg font-semibold">Country *</label>
+        <label for="country" class="block text-lg font-semibold mb-1">Country *</label>
         <select name="country" id="country" required
-                class="w-full px-4 py-2 border border-gray-300 rounded bg-white">
+                class="w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded bg-white text-sm sm:text-base">
           <option value="">Loading countries...</option>
         </select>
       </div>
 
       <!-- Reason -->
       <div>
-        <label for="reason" class="block text-lg font-semibold">Reason for writing *</label>
+        <label for="reason" class="block text-lg font-semibold mb-1">Reason for writing *</label>
         <select name="reason" id="reason" required
-                class="w-full px-4 py-2 border border-gray-300 rounded bg-white">
+                class="w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded bg-white text-sm sm:text-base">
           <option value="">Select reason</option>
           <option value="Ask a question">Ask a question</option>
           <option value="General">General</option>
@@ -112,29 +112,28 @@
 
       <!-- Message -->
       <div>
-        <label for="message" class="block text-lg font-semibold">Message *</label>
+        <label for="message" class="block text-lg font-semibold mb-1">Message *</label>
         <textarea name="message" id="message" rows="5" required
-                  class="w-full px-4 py-2 border border-gray-300 rounded resize-none focus:outline-none focus:ring-2 focus:ring-green-300"></textarea>
+                  class="w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded resize-none focus:outline-none focus:ring-2 focus:ring-green-300 text-sm sm:text-base"></textarea>
       </div>
 
       <!-- Terms -->
       <div class="flex items-start space-x-2">
         <input type="checkbox" id="terms" name="terms" required class="mt-1" />
         <label for="terms" class="text-sm">
-           I agree to the <button type="button" id="openTermsModal" 
+          I agree to the <button type="button" id="openTermsModal" 
            class="underline text-blue-600 hover:text-blue-800">terms and conditions</button>
         </label>
       </div>
 
-          <!-- Submit -->
+      <!-- Submit -->
       <button type="submit"
-              class="bg-black text-white px-6 py-3 rounded shadow hover:bg-gray-800 transition">
-        Submit ✉️
+              class="bg-black text-white px-6 py-3 rounded shadow hover:bg-gray-800 transition text-base sm:text-lg flex items-center justify-center">
+        Submit <span class="ml-4">✉️</span>
       </button>
     </form>
   </div>
 </section>
-
   </div>
 <script src="./scripts/mainScript.js"></script>
 <script src="./scripts/contactScripts.js"></script>
