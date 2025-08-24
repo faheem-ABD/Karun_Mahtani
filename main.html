@@ -5,115 +5,94 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Karun Mahtani MainPage</title>
   <script src="https://cdn.tailwindcss.com"></script>
+ <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
-  body {
-  transition: opacity 0.1s ease-in-out;
-  }
-  .fade-out {
-    opacity: 0 !important;
-  }
-  .opacity-0 {
-    opacity: 0;
-    pointer-events: none;
-  }
-  .opacity-100 {
-    opacity: 1;
-    pointer-events: auto;
-  }
-  .menu-link {
-    position: relative;
-    padding: 0.5rem 1.5rem;
-    border-radius: 0.5rem;
-    transition: all 0.3s ease;
-  }
-  .menu-link:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.4), 0 0 20px rgba(255, 255, 255, 0.3);
-    transform: scale(1.05);
-  }
-</style>
-
- 
+    .header-font {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 400; /* normal weight */
+      text-transform: uppercase; /* like BCS site */
+    }
+  </style>
 </head>
-<body class="bg-white opacity-0 transition-opacity duration-300">
- <header id="mainPageHeader" 
-        class="bg-white fixed top-0 left-0 right-0 w-full z-50 
-               pt-1 pb-2 sm:pb-3 md:pt-2 lg:pt-3 lg:pb-5 
-               transition-opacity duration-700">
 
+<body class="bg-white opacity-0 transition-opacity duration-300">
+
+<header id="mainPageHeader" class="bg-white fixed top-0 left-0 right-0 w-full z-50 pt-1 pb-2 sm:pb-3 md:pt-2 lg:pt-3 lg:pb-5 transition-opacity duration-700">
   <div class="relative max-w-screen-3xl mx-auto px-4 flex items-center justify-between">
 
-    <img src="./assets/logoBlack.png" alt="Karun Mahtani Logo White" 
-         class="mx-auto block w-[5.5rem] sm:w-[7.7rem] md:w-[11rem] lg:w-[13.2rem] xl:w-[15.4rem] mt-2 sm:-mt-1" /> 
+    <!-- Hamburger + MENU (Left) -->
+    <div id="hamburgerContainer" class="flex items-center gap-2 cursor-pointer whitespace-nowrap">
+      <div id="hamburger" class="flex flex-col gap-1">
+        <span class="block h-0.5 w-6 bg-black transition-colors duration-200"></span>
+        <span class="block h-0.5 w-6 bg-black transition-colors duration-200"></span>
+        <span class="block h-0.5 w-6 bg-black transition-colors duration-200"></span>
+      </div>
+      <span id="menuText" class="header-font text-black text-base">MENU</span>
+    </div>
 
-    <img src="./assets/menuB.png" alt="MenuButton" id="menuIcon"
-         class="w-4 sm:w-6 md:w-8 lg:w-8 xl:w-9 cursor-pointer z-50 mt-2 sm:mt-0 transition-transform duration-300" />    
-  </div>                         
+    <!-- Logo (Center) -->
+    <img src="./assets/logoBlack.png" alt="Karun Mahtani Logo" class="mx-auto block w-[11rem] sm:w-[13rem] md:w-[15rem]" /> 
+
+    <div id="helpContact" class="flex items-center gap-2 bg-[#fdb930] px-4 py-1 rounded cursor-pointer transition-colors duration-200">
+    <!-- Circle with ? -->
+    <div class="w-5 h-5 flex items-center justify-center rounded-full bg-[#fdb930] border border-black text-black font-bold text-sm transition-all duration-200">
+      ?
+    </div>
+    <!-- Text -->
+    <span class="header-font text-black font-normal transition-colors duration-200">Help & Service</span>
+  </div>
+
+  </div>
 </header>
 
-<section class="relative min-h-[60vh] md:min-h-[50vh] lg:min-h-[400px] xl:min-h-[600px] 2xl:min-h-[800px]">
-
-  <img src="./assets/sample_image.png"
-       alt="Main Visual"
-       class="absolute inset-0 w-full h-full object-cover object-center" />
-</section>
-
-<!-- Overlay Menu -->
-<div id="overlayMenu" 
-     class="fixed inset-0 bg-black bg-opacity-80 text-white z-40 flex flex-col items-center 
-     justify-center space-y-4 text-xl sm:text-2xl md:text-3xl opacity-0 pointer-events-none 
-     transition-opacity duration-500">
-  
-  <a href="contact.html" class="menu-link">Contact</a>
-  <a href="dates.html" class="menu-link">Dates</a>
-  <a href="playlist.html" class="menu-link">Playlist</a>
-  <a href="socials.html" class="menu-link">Socials</a>
-</div>
-
+  <section class="relative min-h-[60vh] md:min-h-[50vh] lg:min-h-[400px] xl:min-h-[600px] 2xl:min-h-[800px]">
+    <img src="./assets/mainImage.png"
+         alt="Main Visual"
+         class="absolute inset-0 w-full h-full object-cover object-center" />
+  </section>
 
   <section id="latestNews" class="bg-white py-10 px-4 sm:px-8 lg:px-16">
-  <h2 class="text-2xl sm:text-3xl font-bold text-center mb-8">Latest News</h2>
+    <h2 class="text-2xl sm:text-3xl font-bold text-center mb-8">Latest News</h2>
 
-  <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-    <!-- Card 1 -->
-    <div class="bg-gray-100 rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow duration-300">
-      <h3 class="text-lg font-semibold mb-1">Upcoming Tour: Europe 2025</h3>
-      <p class="text-gray-700 text-sm">Join Karun Mahtani on an exclusive tour across Europe. Tickets now available!</p>
+    <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+      <!-- Card 1 -->
+      <div class="bg-gray-100 rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow duration-300">
+        <h3 class="text-lg font-semibold mb-1">Upcoming Tour: Europe 2025</h3>
+        <p class="text-gray-700 text-sm">Join Karun Mahtani on an exclusive tour across Europe. Tickets now available!</p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-gray-100 rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow duration-300">
+        <h3 class="text-lg font-semibold mb-1">New Merch Drop</h3>
+        <p class="text-gray-700 text-sm">Explore the latest collection of Karun's merch, available in limited quantities.</p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-gray-100 rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow duration-300">
+        <h3 class="text-lg font-semibold mb-1">Latest Single Release</h3>
+        <p class="text-gray-700 text-sm">Stream the latest track "Echoes" now on all major platforms.</p>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="bg-gray-100 rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow duration-300">
+        <h3 class="text-lg font-semibold mb-1">Podcast Launch</h3>
+        <p class="text-gray-700 text-sm">Tune in to Karun Mahtani’s new podcast where music meets real talk. First episode out now!</p>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="bg-gray-100 rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow duration-300">
+        <h3 class="text-lg font-semibold mb-1">Behind the Scenes</h3>
+        <p class="text-gray-700 text-sm">Go behind the scenes of Karun's creative process with exclusive studio footage and interviews.</p>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="bg-gray-100 rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow duration-300">
+        <h3 class="text-lg font-semibold mb-1">Fan Art Spotlight</h3>
+        <p class="text-gray-700 text-sm">Showcasing amazing fan artwork submitted from around the world. Submit yours to get featured!</p>
+      </div>
     </div>
+  </section>
 
-    <!-- Card 2 -->
-    <div class="bg-gray-100 rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow duration-300">
-      <h3 class="text-lg font-semibold mb-1">New Merch Drop</h3>
-      <p class="text-gray-700 text-sm">Explore the latest collection of Karun's merch, available in limited quantities.</p>
-    </div>
-
-    <!-- Card 3 -->
-    <div class="bg-gray-100 rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow duration-300">
-      <h3 class="text-lg font-semibold mb-1">Latest Single Release</h3>
-      <p class="text-gray-700 text-sm">Stream the latest track "Echoes" now on all major platforms.</p>
-    </div>
-
-    <!-- Card 4 -->
-    <div class="bg-gray-100 rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow duration-300">
-      <h3 class="text-lg font-semibold mb-1">Podcast Launch</h3>
-      <p class="text-gray-700 text-sm">Tune in to Karun Mahtani’s new podcast where music meets real talk. First episode out now!</p>
-    </div>
-
-    <!-- Card 5 -->
-    <div class="bg-gray-100 rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow duration-300">
-      <h3 class="text-lg font-semibold mb-1">Behind the Scenes</h3>
-      <p class="text-gray-700 text-sm">Go behind the scenes of Karun's creative process with exclusive studio footage and interviews.</p>
-    </div>
-
-    <!-- Card 6 -->
-    <div class="bg-gray-100 rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow duration-300">
-      <h3 class="text-lg font-semibold mb-1">Fan Art Spotlight</h3>
-      <p class="text-gray-700 text-sm">Showcasing amazing fan artwork submitted from around the world. Submit yours to get featured!</p>
-    </div>
-  </div>
-</section>
-<script src="./scripts/introScript.js"></script>
-<script src="./scripts/mainScript.js"></script>
-
+  <script src="./scripts/introScript.js"></script>
 </body>
 </html>
