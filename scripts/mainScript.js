@@ -32,9 +32,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- DROPDOWN POSITION ---
   function positionDropdown() {
-     dropdownMenu.style.top = `${header.offsetHeight}px`; // no extraGap
-  } 
-
+    dropdownMenu.style.top = `${header.offsetHeight}px`; // flush below header
+  }
   window.addEventListener('load', positionDropdown);
   window.addEventListener('resize', positionDropdown);
 
@@ -60,22 +59,16 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- SINGLE HOVER LISTENER ---
   hamburgerContainer.addEventListener('mouseenter', () => {
     hamburger.querySelectorAll('span').forEach(span => {
-      if (span.classList.contains('bg-black')) {
-        span.classList.add('bg-red-500'); // hamburger bars
-      } else {
-        span.classList.add('text-red-500'); // X
-      }
+      if (span.classList.contains('bg-black')) span.classList.add('bg-red-500'); // bars
+      else span.classList.add('text-red-500'); // X
     });
     menuText.classList.add('text-red-500');
   });
 
   hamburgerContainer.addEventListener('mouseleave', () => {
     hamburger.querySelectorAll('span').forEach(span => {
-      if (span.classList.contains('bg-black')) {
-        span.classList.remove('bg-red-500');
-      } else {
-        span.classList.remove('text-red-500');
-      }
+      if (span.classList.contains('bg-black')) span.classList.remove('bg-red-500');
+      else span.classList.remove('text-red-500');
     });
     menuText.classList.remove('text-red-500');
   });
@@ -89,12 +82,15 @@ document.addEventListener("DOMContentLoaded", () => {
       showClose();
     } else {
       // CLOSE
+      dropdownMenu.style.maxHeight = "0px"; // smooth collapse
       dropdownMenu.classList.add('max-h-0');
-      dropdownMenu.style.maxHeight = null;
       showHamburger();
     }
   });
 
   // --- INITIALIZE ---
   showHamburger();
+
+  // Ensure smooth collapse on initial load
+  dropdownMenu.style.maxHeight = "0px";
 });
