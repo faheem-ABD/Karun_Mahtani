@@ -22,11 +22,12 @@
 <body class="bg-white opacity-0 transition-opacity duration-300">
 
 <header id="mainPageHeader" 
-  class="bg-white fixed top-0 left-0 right-0 w-full z-50 
-  pt-6 pb-6 sm:pt-4 sm:pb-4 md:pt-3 md:pb-3 lg:pt-2 lg:pb-3 transition-opacity duration-700">
-
+        class="overflow-hidden bg-white fixed top-0 left-0 right-0 w-full z-50 
+               pt-6 pb-6 sm:pt-4 sm:pb-4 md:pt-3 md:pb-3 lg:pt-2 lg:pb-3 
+               transition-opacity duration-700 ">
+               
   <div class="relative max-w-screen-3xl mx-auto px-3 sm:px-4 flex items-center justify-between">
-
+    
     <!-- Hamburger + MENU (Left) -->
     <div id="hamburgerContainer" class="flex items-center gap-1 sm:gap-2 cursor-pointer whitespace-nowrap">
       <div id="hamburger" class="flex flex-col gap-0.5 sm:gap-1">
@@ -42,19 +43,12 @@
       class="mx-auto block w-[8rem] sm:w-[11rem] md:w-[13rem] lg:w-[15rem]" /> 
 
     <!-- Help & Service (Right) -->
-    <div id="helpContact" 
-      class="flex items-center gap-1 sm:gap-2 bg-[#fdb930] 
+    <div id="helpContact" class="flex items-center gap-1 sm:gap-2 bg-[#fdb930] 
       px-2 py-0.5 sm:px-3 sm:py-1 rounded cursor-pointer transition-colors duration-200 
       text-[0.65rem] sm:text-xs md:text-sm">
-
-      <!-- Circle with ? -->
       <div class="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 flex items-center justify-center 
         rounded-full bg-[#fdb930] border border-black text-black font-normal 
-        text-[0.55rem] sm:text-xs md:text-sm transition-all duration-200">
-        ?
-      </div>
-
-      <!-- Text -->
+        text-[0.55rem] sm:text-xs md:text-sm transition-all duration-200">?</div>
       <span class="header-font text-black font-thin transition-colors duration-200">
         Help & Service
       </span>
@@ -63,27 +57,27 @@
   </div>
 </header>
 
+<!-- Dropdown Panel -->
 <div id="dropdownMenu" 
-  class="fixed left-0 right-0 top-[72px] sm:top-[60px] md:top-[56px] lg:top-[52px] 
-  bg-white shadow-md -mt-px overflow-hidden max-h-0 transition-all duration-500 z-40">
+  class="-mt-px fixed left-0 right-0 bg-white shadow-lg overflow-hidden max-h-0 transition-all duration-500 z-40">
+  
+  <div class="max-w-screen-3xl mx-auto px-6 sm:px-10 py-14 flex justify-between items-start gap-12">
 
-
-  <div class="max-w-screen-3xl mx-auto px-6 sm:px-10 py-20 flex justify-between items-start gap-20">
-
-    <!-- Menu options (Left) -->
+    <!-- Menu options -->
     <div class="flex flex-col gap-8">
       <a href="#" class="header-font font-thin text-black text-sm sm:text-base hover:text-red-500 transition-colors duration-200">CONTACT</a>
       <a href="#" class="header-font font-thin text-black text-sm sm:text-base hover:text-red-500 transition-colors duration-200">DATES</a>
       <a href="#" class="header-font font-thin text-black text-sm sm:text-base hover:text-red-500 transition-colors duration-200">EVENTS</a>
     </div>
 
-    <!-- Image (Right) -->
+    <!-- Image on right -->
     <div>
       <img src="./assets/dropdownImage.png" alt="Menu Visual" class="w-72 sm:w-96 h-auto object-cover">
     </div>
 
   </div>
 </div>
+
   <section class="relative min-h-[60vh] md:min-h-[50vh] lg:min-h-[400px] xl:min-h-[600px] 2xl:min-h-[800px]">
     <img src="./assets/mainImage.png"
          alt="Main Visual"
