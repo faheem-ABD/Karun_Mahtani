@@ -3,13 +3,9 @@ document.addEventListener("DOMContentLoaded", () => {
   document.body.classList.remove("opacity-0");
   document.body.classList.add("opacity-100");
 
-  // -----------------------------
-  // Intro page logic (only if #VinylDisc exists)
-  // -----------------------------
+  // Only if VinylDisc exists
   const disc = document.getElementById('VinylDisc');
-  const audio = document.getElementById('introMusic');
-
-  if (disc && audio) {
+  if (disc) {
     let isDragging = false;
     let lastAngle = 0;
     let currentRotation = 0;
@@ -39,9 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
       let x = event.touches ? event.touches[0].clientX : event.clientX;
       let y = event.touches ? event.touches[0].clientY : event.clientY;
       lastAngle = Math.atan2(y - centerY, x - centerX);
-      audio.muted = false;
-      audio.volume = 1;
-      audio.play();
     }
 
     function handleMove(event) {
@@ -63,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
       fadeOutAndGo();
     }
 
-    async function autoSpinAndFadeAudio(duration = 3000) {
+    async function autoSpinAndFade(duration = 3000) {
       return new Promise(resolve => {
         let maxSpeed = 3;
         const minSpeed = 0.05;
@@ -75,16 +68,15 @@ document.addEventListener("DOMContentLoaded", () => {
           const currentSpeed = Math.max(minSpeed, easedSpeed);
           currentRotation += currentSpeed;
           disc.style.transform = `rotate(${currentRotation}deg)`;
-          audio.volume = Math.max(0, 1 - progress * progress);
           if (progress < 1) requestAnimationFrame(animate);
-          else { audio.pause(); resolve(); }
+          else resolve();
         }
         animate();
       });
     }
 
     async function fadeOutAndGo() {
-      await autoSpinAndFadeAudio(3000);
+      await autoSpinAndFade(3000);
       document.body.classList.add('fade-out');
       setTimeout(() => window.location.href = 'main.html', 700);
     }
