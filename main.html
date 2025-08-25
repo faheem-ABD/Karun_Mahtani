@@ -18,33 +18,48 @@
 
 <body class="bg-white opacity-0 transition-opacity duration-300">
 
-<header id="mainPageHeader" class="bg-white fixed top-0 left-0 right-0 w-full z-50 pt-1 pb-2 sm:pb-3 md:pt-2 lg:pt-3 lg:pb-5 transition-opacity duration-700">
-  <div class="relative max-w-screen-3xl mx-auto px-4 flex items-center justify-between">
+<header id="mainPageHeader" 
+  class="bg-white fixed top-0 left-0 right-0 w-full z-50 
+  pt-6 pb-6 sm:pt-4 sm:pb-4 md:pt-3 md:pb-3 lg:pt-2 lg:pb-3 transition-opacity duration-700">
+
+  <div class="relative max-w-screen-3xl mx-auto px-3 sm:px-4 flex items-center justify-between">
 
     <!-- Hamburger + MENU (Left) -->
-    <div id="hamburgerContainer" class="flex items-center gap-2 cursor-pointer whitespace-nowrap">
-      <div id="hamburger" class="flex flex-col gap-1">
-        <span class="block h-0.5 w-4 bg-black transition-colors duration-200"></span>
-        <span class="block h-0.5 w-4 bg-black transition-colors duration-200"></span>
-        <span class="block h-0.5 w-4 bg-black transition-colors duration-200"></span>
+    <div id="hamburgerContainer" class="flex items-center gap-1 sm:gap-2 cursor-pointer whitespace-nowrap">
+      <div id="hamburger" class="flex flex-col gap-0.5 sm:gap-1">
+        <span class="block h-0.5 w-3 sm:w-4 bg-black transition-colors duration-200"></span>
+        <span class="block h-0.5 w-3 sm:w-4 bg-black transition-colors duration-200"></span>
+        <span class="block h-0.5 w-3 sm:w-4 bg-black transition-colors duration-200"></span>
       </div>
-      <span id="menuText" class="header-font font-thin text-black text-base">MENU</span>
+      <span id="menuText" class="header-font font-thin text-black text-sm sm:text-base">MENU</span>
     </div>
 
     <!-- Logo (Center) -->
-    <img src="./assets/logoBlack.png" alt="Karun Mahtani Logo" class="mx-auto block w-[11rem] sm:w-[13rem] md:w-[15rem]" /> 
+    <img src="./assets/logoBlack.png" alt="Karun Mahtani Logo" 
+      class="mx-auto block w-[8rem] sm:w-[11rem] md:w-[13rem] lg:w-[15rem]" /> 
 
-    <div id="helpContact" class="flex items-center gap-2 bg-[#fdb930] px-4 py-1 rounded cursor-pointer transition-colors duration-200">
-    <!-- Circle with ? -->
-    <div class="w-5 h-5 flex items-center justify-center rounded-full bg-[#fdb930] border border-black text-black font-bold text-sm transition-all duration-200">
-      ?
+    <!-- Help & Service (Right) -->
+    <div id="helpContact" 
+      class="flex items-center gap-1 sm:gap-2 bg-[#fdb930] 
+      px-2 py-0.5 sm:px-3 sm:py-1 rounded cursor-pointer transition-colors duration-200 
+      text-[0.65rem] sm:text-xs md:text-sm">
+
+      <!-- Circle with ? -->
+      <div class="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 flex items-center justify-center 
+        rounded-full bg-[#fdb930] border border-black text-black font-normal 
+        text-[0.55rem] sm:text-xs md:text-sm transition-all duration-200">
+        ?
+      </div>
+
+      <!-- Text -->
+      <span class="header-font text-black font-thin transition-colors duration-200">
+        Help & Service
+      </span>
     </div>
-    <!-- Text -->
-    <span class="header-font text-black font-thin transition-colors duration-200">Help & Service</span>
-  </div>
 
   </div>
 </header>
+
 
   <section class="relative min-h-[60vh] md:min-h-[50vh] lg:min-h-[400px] xl:min-h-[600px] 2xl:min-h-[800px]">
     <img src="./assets/mainImage.png"
