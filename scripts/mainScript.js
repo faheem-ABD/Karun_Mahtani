@@ -40,4 +40,20 @@ if (hamburgerContainer && hamburger && menuText) {
     console.log("Hamburger clicked! Dropdown coming soon.");
   });
 }
+
+const dropdownMenu = document.getElementById('dropdownMenu');
+hamburgerContainer.addEventListener('click', () => {
+  if (dropdownMenu) {
+    if (dropdownMenu.classList.contains('max-h-0')) {
+      // Open dropdown
+      dropdownMenu.classList.remove('max-h-0');
+      dropdownMenu.classList.add('max-h-[500px]'); // adjust max height as needed
+    } else {
+      // Close dropdown
+      dropdownMenu.classList.add('max-h-0');
+      dropdownMenu.classList.remove('max-h-[500px]');
+    }
+  }
+});
+
 });
