@@ -75,14 +75,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- DROPDOWN TOGGLE ---
   hamburgerContainer.addEventListener('click', () => {
-    if (dropdownMenu.classList.contains('max-h-0')) {
-      // OPEN
+    const isClosed = dropdownMenu.classList.contains('max-h-0');
+
+    if (isClosed) {
       dropdownMenu.classList.remove('max-h-0');
-      dropdownMenu.style.maxHeight = dropdownMenu.scrollHeight + "px"; // auto-height
+
+      // --- MOBILE SCROLL FIX ---
+      const maxHeight = Math.min(dropdownMenu.scrollHeight, window.innerHeight * 0.9);
+      dropdownMenu.style.maxHeight = maxHeight + "px";
+
       showClose();
     } else {
-      // CLOSE
-      dropdownMenu.style.maxHeight = "0px"; // smooth collapse
+      dropdownMenu.style.maxHeight = "0px";
       dropdownMenu.classList.add('max-h-0');
       showHamburger();
     }
@@ -90,7 +94,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- INITIALIZE ---
   showHamburger();
-
-  // Ensure smooth collapse on initial load
   dropdownMenu.style.maxHeight = "0px";
 });
