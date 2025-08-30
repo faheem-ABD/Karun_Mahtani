@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- DROPDOWN POSITION ---
   function positionDropdown() {
-    dropdownMenu.style.top = `${header.offsetHeight}px`; // flush below header
+    dropdownMenu.style.top = `${header.offsetHeight}px`;
   }
   window.addEventListener('load', positionDropdown);
   window.addEventListener('resize', positionDropdown);

@@ -14,12 +14,13 @@
       letter-spacing: 0.005em;
     }
     #dropdownMenu {
-    transition: max-height 0.5s ease-in-out, opacity 0.3s ease-in-out;
+      transform: translateY(-0.5px);
+      transition: max-height 0.5s ease-in-out, opacity 0.3s ease-in-out;
      }
   </style>
 </head>
 
-<body class="bg-white opacity-0 transition-opacity duration-300">
+<body class="bg-white opacity-0 transition-opacity duration-100">
 
 <header id="mainPageHeader" 
   class="bg-white fixed top-0 left-0 right-0 w-full z-50 
@@ -68,7 +69,7 @@
     <!-- DATA Section -->
     <div class="flex flex-col gap-2 sm:gap-8">
       <span class="header-font font-thin text-black/60 text-sm sm:text-base">DATA</span>
-      <a href="#" class="header-font font-thin text-black text-sm sm:text-base hover:text-red-500 transition-colors duration-200">CONTACT</a>
+      <a href="contact.html" class="header-font font-thin text-black text-sm sm:text-base hover:text-red-500 transition-colors duration-200">CONTACT</a>
       <a href="#" class="header-font font-thin text-black text-sm sm:text-base hover:text-red-500 transition-colors duration-200">DATES</a>
       <a href="#" class="header-font font-thin text-black text-sm sm:text-base hover:text-red-500 transition-colors duration-200">EVENTS</a>
     </div>
@@ -159,5 +160,6 @@
 
   <script src="./scripts/introScript.js"></script>
   <script src="./scripts/mainScript.js"></script>
+   <script src="./scripts/contactScripts.js"></script>
 </body>
 </html>
