@@ -80,10 +80,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (isClosed) {
       dropdownMenu.classList.remove('max-h-0');
 
-      // --- MOBILE SCROLL FIX ---
-      const maxHeight = Math.min(dropdownMenu.scrollHeight, window.innerHeight * 0.9);
+      // --- FULL SCREEN MOBILE ---
+      const isMobile = window.innerWidth < 640; // Tailwind sm breakpoint
+      const maxHeight = isMobile ? window.innerHeight : Math.min(dropdownMenu.scrollHeight, window.innerHeight * 0.9);
       dropdownMenu.style.maxHeight = maxHeight + "px";
-
+      
       showClose();
     } else {
       dropdownMenu.style.maxHeight = "0px";
