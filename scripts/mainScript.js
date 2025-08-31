@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const dropdownMenu = document.getElementById('dropdownMenu');
   const header = document.getElementById('mainPageHeader');
 
-  // --- HELP & SERVICE ---
+  // --- HELP & SERVICE HOVER & CLICK ---
   if (helpContact) {
     const circle = helpContact.querySelector('div');
     const text = helpContact.querySelector('span');
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener('load', positionDropdown);
   window.addEventListener('resize', positionDropdown);
 
-  // --- STATE FUNCTIONS ---
+  // --- HAMBURGER STATE FUNCTIONS ---
   function showHamburger() {
     hamburger.innerHTML = `
       <span class="block h-0.5 w-3 sm:w-4 bg-black transition-colors duration-200"></span>
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
     menuText.classList.add('text-black');
   }
 
-  // --- SINGLE HOVER LISTENER ---
+  // --- HAMBURGER HOVER EFFECT ---
   hamburgerContainer.addEventListener('mouseenter', () => {
     hamburger.querySelectorAll('span').forEach(span => {
       if (span.classList.contains('bg-black')) span.classList.add('bg-red-500'); // bars
@@ -74,26 +74,50 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // --- DROPDOWN TOGGLE ---
-  hamburgerContainer.addEventListener('click', () => {
+  function toggleDropdown() {
     const isClosed = dropdownMenu.classList.contains('max-h-0');
 
     if (isClosed) {
       dropdownMenu.classList.remove('max-h-0');
 
-      // --- FULL SCREEN MOBILE ---
       const isMobile = window.innerWidth < 640; // Tailwind sm breakpoint
       const maxHeight = isMobile ? window.innerHeight : Math.min(dropdownMenu.scrollHeight, window.innerHeight * 0.9);
       dropdownMenu.style.maxHeight = maxHeight + "px";
-      
+
       showClose();
     } else {
       dropdownMenu.style.maxHeight = "0px";
       dropdownMenu.classList.add('max-h-0');
       showHamburger();
     }
-  });
+  }
 
-  // --- INITIALIZE ---
+  // Attach **once**
+  hamburgerContainer.addEventListener('click', toggleDropdown);
+
+  // --- INITIAL STATE ---
   showHamburger();
   dropdownMenu.style.maxHeight = "0px";
+});
+
+// --- RESET DROPDOWN ON BACK/FORWARD NAVIGATION ---
+window.addEventListener('pageshow', () => {
+  const dropdownMenu = document.getElementById('dropdownMenu');
+  const hamburger = document.getElementById('hamburger');
+  const menuText = document.getElementById('menuText');
+
+  if (dropdownMenu && hamburger && menuText) {
+    dropdownMenu.style.maxHeight = "0px";
+    dropdownMenu.classList.add('max-h-0');
+
+    // Reset hamburger
+    hamburger.innerHTML = `
+      <span class="block h-0.5 w-3 sm:w-4 bg-black transition-colors duration-200"></span>
+      <span class="block h-0.5 w-3 sm:w-4 bg-black transition-colors duration-200"></span>
+      <span class="block h-0.5 w-3 sm:w-4 bg-black transition-colors duration-200"></span>
+    `;
+    menuText.textContent = 'MENU';
+    menuText.classList.remove('text-red-500');
+    menuText.classList.add('text-black');
+  }
 });
