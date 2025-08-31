@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   // --- Country dropdown fetch ---
- const countrySelect = document.getElementById('country');
+  const countrySelect = document.getElementById('country');
 if (countrySelect) {
   fetch('https://restcountries.com/v3.1/independent')
     .then(response => response.json())
@@ -43,11 +43,11 @@ if (countrySelect) {
     contactmenuText.classList.remove('text-red-500');
     contactmenuText.classList.add('text-black');
 
-    contacthamburgerContainer.onclick = () => {
+    //  Correct event binding
+    contacthamburgerContainer.addEventListener('click', () => {
       window.location.href = 'main.html';
-    };
+    });
   }
-
   if (contacthamburgerContainer && contacthamburger && contactmenuText) {
     contacthamburgerContainer.addEventListener('mouseenter', () => {
       contacthamburger.querySelectorAll('span').forEach(span => {
