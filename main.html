@@ -111,11 +111,10 @@
 </div>
 
 
-  <section class="relative min-h-[60vh] md:min-h-[50vh] lg:min-h-[400px] xl:min-h-[600px] 2xl:min-h-[800px]">
-    <img src="./assets/mainImage.png"
-         alt="Main Visual"
-         class="absolute inset-0 w-full h-full object-cover object-center" />
-  </section>
+<section class="relative w-full h-[500px] overflow-hidden">
+  <img src="./assets/16.jpg" class="absolute inset-0 w-full h-full object-cover object-center slide opacity-100 transition-opacity duration-1000" />
+  <img src="./assets/18.jpg" class="absolute inset-0 w-full h-full object-cover object-center slide opacity-0 transition-opacity duration-1000" />
+</section>
 
   <section id="latestNews" class="bg-white py-10 px-4 sm:px-8 lg:px-16">
     <h2 class="text-2xl sm:text-3xl font-bold text-center mb-8">Latest News</h2>
@@ -162,5 +161,8 @@
   <script src="./scripts/introScript.js"></script>
   <script src="./scripts/mainScript.js"></script>
   <script src="./scripts/contactScripts.js"></script>
+  <script src="./scripts/transition.js"></script>
+  
+
 </body>
 </html>
