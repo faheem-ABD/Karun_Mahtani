@@ -16,5 +16,5 @@ window.addEventListener('load', () => {
   }
 
   // Change slide every 5 seconds
-  setInterval(nextSlide, 6000);
+  setInterval(nextSlide, 2000);
 });

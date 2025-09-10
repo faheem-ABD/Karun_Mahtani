@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" width="1471.258" height="243.719" viewBox="0 0 1471.258 243.719">
+  <defs>
+    <style>
+      .cls-1 {
+        letter-spacing: -.1em;
+      }
+
+      .cls-2 {
+        letter-spacing: -.185em;
+      }
+
+      .cls-3 {
+        letter-spacing: -.116em;
+      }
+
+      .cls-4 {
+        letter-spacing: -.118em;
+      }
+
+      .cls-5 {
+        letter-spacing: -.113em;
+      }
+
+      .cls-6 {
+        letter-spacing: -.113em;
+      }
+
+      .cls-7 {
+        letter-spacing: -.113em;
+      }
+
+      .cls-8 {
+        fill: #070707;
+        font-family: MyriadConceptRoman-Bold, 'Myriad Variable Concept';
+        font-size: 224.212px;
+        font-variation-settings: 'wght' 700, 'wdth' 100;
+        font-weight: 700;
+      }
+    </style>
+  </defs>
+  <text class="cls-8" transform="translate(0 187.667)"><tspan class="cls-1" x="0" y="0">K</tspan><tspan class="cls-6" x="115.242" y="0">A</tspan><tspan class="cls-4" x="236.987" y="0">R</tspan><tspan class="cls-7" x="343.487" y="0" xml:space="preserve">UN   </tspan><tspan class="cls-3" x="660.292" y="0">M</tspan><tspan class="cls-5" x="823.967" y="0">AH</tspan><tspan class="cls-2" x="1074.858" y="0">T</tspan><tspan class="cls-6" x="1156.247" y="0">ANI</tspan></text>
+</svg>

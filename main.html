@@ -17,6 +17,7 @@
       transform: translateY(-0.5px);
       transition: max-height 0.5s ease-in-out, opacity 0.3s ease-in-out;
      }
+    
   </style>
 </head>
 
@@ -124,10 +125,14 @@
 </div>
 
 
-<section class="relative w-full h-[500px] overflow-hidden">
-  <img src="./assets/16.jpg" class="absolute inset-0 w-full h-full object-cover object-center slide opacity-100 transition-opacity duration-1000" />
-  <img src="./assets/18.jpg" class="absolute inset-0 w-full h-full object-cover object-center slide opacity-0 transition-opacity duration-1000" />
-</section>
+<div class="relative w-full h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh]">
+  <img src="./assets/main1.png" alt="Slide 1"
+       class="absolute top-0 left-0 w-full h-full object-cover object-center slide transition-opacity duration-1000 opacity-100" />
+
+  <img src="./assets/main2.png" alt="Slide 2"
+       class="absolute top-0 left-0 w-full h-full object-cover object-center slide transition-opacity duration-1000 opacity-0" />
+</div>
+
 
   <section id="latestNews" class="bg-white py-10 px-4 sm:px-8 lg:px-16">
     <h2 class="text-2xl sm:text-3xl font-bold text-center mb-8">Latest News</h2>
