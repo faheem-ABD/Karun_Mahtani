@@ -8,27 +8,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- HELP & SERVICE HOVER & CLICK ---
   if (helpContact) {
-    const circle = helpContact.querySelector('div');
-    const text = helpContact.querySelector('span');
+  const circle = helpContact.querySelector('div');
 
-    helpContact.addEventListener('mouseenter', () => {
-      helpContact.classList.add('bg-black');
-      circle.classList.add('bg-black', 'border-yellow-400', 'text-yellow-400');
-      circle.classList.remove('border-black');
-      text.classList.add('text-yellow-400');
-    });
+  helpContact.addEventListener('mouseenter', () => {
+    circle.classList.add('bg-black', 'border-yellow-400', 'text-yellow-400');
+    circle.classList.remove('border-black');
+  });
 
-    helpContact.addEventListener('mouseleave', () => {
-      helpContact.classList.remove('bg-black');
-      circle.classList.remove('bg-black', 'border-yellow-400', 'text-yellow-400');
-      circle.classList.add('border-black');
-      text.classList.remove('text-yellow-400');
-    });
+  helpContact.addEventListener('mouseleave', () => {
+    circle.classList.remove('bg-black', 'border-yellow-400', 'text-yellow-400');
+    circle.classList.add('border-black');
+  });
 
-    helpContact.addEventListener('click', () => {
-      window.location.href = 'terms.html';
-    });
-  }
+  helpContact.addEventListener('click', () => {
+    window.location.href = 'terms.html';
+  });
+}
 
   // --- DROPDOWN POSITION ---
   function positionDropdown() {
