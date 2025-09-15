@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function showClose() {
-    hamburger.innerHTML = `<span class="header-font font-thin text-black text-sm sm:text-base transition-colors duration-200">✕</span>`;
+    hamburger.innerHTML = `<span class="header-font font-thin text-black text-sm sm:text-base lg:text-xl transition-colors duration-200">✕</span>`;
     menuText.textContent = 'CLOSE';
     menuText.classList.remove('text-red-500');
     menuText.classList.add('text-black');
