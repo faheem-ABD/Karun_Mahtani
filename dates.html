@@ -2,37 +2,65 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Dates</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
-    body {
-  transition: opacity 0.1s ease-in-out;
-  }
-  .fade-out {
-    opacity: 0 !important;
-  }
-  .opacity-0 {
-    opacity: 0;
-  }
-  .opacity-100 {
-    opacity: 1;
-    pointer-events: auto;
-  }
+   .header-font {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 400; 
+      text-transform: uppercase; 
+      letter-spacing: 0.005em;
+    }
+    #dropdownMenu {
+      transform: translateY(-0.5px);
+      transition: max-height 0.5s ease-in-out, opacity 0.3s ease-in-out;
+     }
   </style>
 </head>
-<body class="bg-white opacity-0 transition-opacity duration-100">
-  <div id="datesPage" class="dates-container">
-    <!-- Main Section -->
-    <header class="datesPageHeader fixed top-0 left-0 right-0 w-full z-50 bg-white pt-2 pb-6 sm:pb-6 md:pt-4 lg:pt-5 lg:pb-10">
-       <div class="relative max-w-screen-3xl mx-auto px-4 flex items-center justify-between">
-    <img src="./assets/logoBlack.png" alt="Karun Mahtani Logo White" 
-         class="mx-auto block w-[5.5rem] sm:w-[7.7rem] md:w-[11rem] lg:w-[13.2rem] xl:w-[15.4rem] mt-2 sm:-mt-1" /> 
 
-    <img src="./assets/menuB.png" alt="MenuButton" id="menuIcon1"
-         class="w-4 sm:w-6 md:w-8 lg:w-8 xl:w-9 cursor-pointer z-50 mt-2 sm:mt-0 transition-transform duration-300" />    
-  </div>           
-    </header>
-  </div>
+
+<header id="datesPageHeader" 
+  class="bg-white fixed top-0 left-0 right-0 w-full z-50 
+         pt-6 pb-6 sm:pt-4 sm:pb-4 md:pt-3 md:pb-3 lg:pt-6 lg:pb-6 xl:pt-8 xl:pb-8 2xl:pt-10 2xl:pb-10
+         transition-all duration-700 overflow-hidden">
+
+
+  <div class="relative max-w-screen-3xl mx-auto px-3 sm:px-4 flex items-center justify-between">
+
+    <!-- Hamburger + MENU -->
+    <div id="dateshamburgerContainer" class="flex items-center gap-1 sm:gap-2 lg:gap-3 cursor-pointer whitespace-nowrap z-10">
+
+      <div id="dateshamburger" class="flex flex-col gap-0.5 sm:gap-1">
+        <span class="block h-0.5 w-3 sm:w-4 lg:w-6 bg-black transition-colors duration-200"></span>
+        <span class="block h-0.5 w-3 sm:w-4 lg:w-6 bg-black transition-colors duration-200"></span>
+        <span class="block h-0.5 w-3 sm:w-4 lg:w-6 bg-black transition-colors duration-200"></span>
+      </div>
+
+      <span id="datesmenuText" class="header-font font-thin text-black text-sm sm:text-base lg:text-xl">MENU</span>
+    </div>
+
+   <div class="absolute inset-x-0 flex justify-center pointer-events-none">
+      <img src="./assets/logoBlack.png" alt="KarunMahtani Logo" 
+          class="w-[9rem] sm:w-[8rem] md:w-[16rem] lg:w-[26rem] 
+                  -translate-x-[2%] sm:translate-x-0" />
+    </div>
+    <!-- Help & Service -->
+    <div id="helpContact" class="flex items-center gap-1 sm:gap-2 lg:gap-3 rounded cursor-pointer transition-colors duration-200 z-10">
+      <div class="w-5 h-5 text-[0.7rem]          
+                  sm:w-5 sm:h-5 sm:text-[0.7rem]  
+                  md:w-6 md:h-6 md:text-sm            
+                  lg:w-8 lg:h-8 lg:text-base         
+                  flex items-center justify-center rounded-full bg-[#fdb930] border border-black text-black font-normal transition-all duration-200">
+        ?
+      </div>
+    </div>
+</header>
+
+   
 <script src="./scripts/mainScript.js"></script>
+<script src="./scripts/datesScripts.js"></script>
 </body>
 </html>
+
