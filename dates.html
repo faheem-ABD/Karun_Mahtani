@@ -60,106 +60,113 @@
     </div>
 </header>
 
-<main class="pt-[250px] flex flex-col items-center gap-20">
+<main class="pt-[120px] sm:pt-[250px] lg:pt-[180px] lg:pb-20 flex flex-col items-center gap-20 px-6 sm:px-0">
 
   <!-- REQUEST A SHOW Button -->
   <a href="contact.html" 
-     class="bg-black text-white font-bold px-10 py-5 rounded-xl hover:bg-yellow-500 transition-colors duration-300 text-lg">
+     class="bg-black text-white font-bold px-4 py-2 text-sm rounded-md 
+            sm:px-10 sm:py-5 sm:text-lg sm:rounded-xl
+            hover:bg-yellow-500 transition-colors duration-300">
     REQUEST A SHOW
   </a>
 
   <!-- Futuristic Show Dates Box (Bigger) -->
-  <div class="bg-white shadow-2xl rounded-3xl w-full max-w-4xl p-10 relative border-2 border-gray-300 flex flex-col gap-8 font-['Oswald']">
+  <div class="bg-white shadow-2xl rounded-3xl w-full max-w-4xl p-10 
+            mx-4 sm:mx-auto relative border-2 border-gray-300 flex flex-col gap-8 font-['Oswald'] lg:mb-12">
+
+
+
 
     <!-- Header -->
-    <h2 class="text-3xl font-bold tracking-wide uppercase border-b-2 border-gray-300 pb-3">
+    <h2 class="text-xl sm:text-3xl lg:text-2xl font-bold tracking-wide uppercase border-b-2 border-gray-300 pb-3">
       Show Dates
     </h2>
 
     <!-- Spacer -->
-    <div class="h-6"></div>
+    <div class="h-0 sm:h-6"></div>
 
     <!-- Scrollable List -->
-    <div class="overflow-y-auto" style="max-height: calc(4 * 5rem + 2rem);">
+    <div class="overflow-y-auto max-h-[calc(4*4rem+1rem)] sm:max-h-[calc(4*5rem+2rem)] lg:max-h-[calc(4*4rem+1rem)]">
+
       <ul class="divide-y divide-gray-200">
         
         <li>
           <a href="#" class="block py-6 flex justify-between items-center hover:bg-gray-50 px-6 rounded transition-all duration-200">
             <div class="flex flex-col">
-              <span class="font-medium text-xl">12/09/2025</span>
-              <span class="text-base text-gray-600">11:00 AM - 2:00 AM</span>
+              <span class="font-medium text-[clamp(0.75rem,2vw,1.25rem)]">12/09/2025</span>
+              <span class="text-[clamp(0.625rem,1.8vw,1rem)] text-gray-600">11:00 AM - 2:00 AM</span>
             </div>
-            <span class="font-semibold text-xl">Leela Palace, Bangalore</span>
+            <span class="font-semibold text-[clamp(0.75rem,2vw,1.25rem)]">Leela Palace, Bangalore</span>
           </a>
         </li>
 
         <li>
           <a href="#" class="block py-6 flex justify-between items-center hover:bg-gray-50 px-6 rounded transition-all duration-200">
             <div class="flex flex-col">
-              <span class="font-medium text-xl">15/10/2025</span>
-              <span class="text-base text-gray-600">8:00 PM - 12:00 AM</span>
+              <span class="font-medium text-[clamp(0.75rem,2vw,1.25rem)]">15/10/2025</span>
+              <span class="text-[clamp(0.625rem,1.8vw,1rem)] text-gray-600">11:00 PM - 2:00 AM</span>
             </div>
-            <span class="font-semibold text-xl">Ursuya, Ibiza</span>
+            <span class="font-semibold text-[clamp(0.75rem,2vw,1.25rem)]">House Bar, Bangalore</span>
           </a>
         </li>
 
         <li>
           <a href="#" class="block py-6 flex justify-between items-center hover:bg-gray-50 px-6 rounded transition-all duration-200">
             <div class="flex flex-col">
-              <span class="font-medium text-xl">22/11/2025</span>
-              <span class="text-base text-gray-600">7:00 PM - 11:00 PM</span>
+              <span class="font-medium text-[clamp(0.75rem,2vw,1.25rem)]">15/10/2025</span>
+              <span class="text-[clamp(0.625rem,1.8vw,1rem)] text-gray-600">11:00 PM - 2:00 AM</span>
             </div>
-            <span class="font-semibold text-xl">Madison Square Garden, NY</span>
+            <span class="font-semibold text-[clamp(0.75rem,2vw,1.25rem)]">Crash In, Bangalore</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="#" class="block py-6 flex justify-between items-center hover:bg-gray-50 px-6 rounded transition-all duration-200">
+           <div class="flex flex-col">
+              <span class="font-medium text-[clamp(0.75rem,2vw,1.25rem)]">15/10/2025</span>
+              <span class="text-[clamp(0.625rem,1.8vw,1rem)] text-gray-600">11:00 PM - 2:00 AM</span>
+            </div>
+            <span class="font-semibold text-[clamp(0.75rem,2vw,1.25rem)]">Tip In, Delhi</span>
           </a>
         </li>
 
         <li>
           <a href="#" class="block py-6 flex justify-between items-center hover:bg-gray-50 px-6 rounded transition-all duration-200">
             <div class="flex flex-col">
-              <span class="font-medium text-xl">05/12/2025</span>
-              <span class="text-base text-gray-600">6:00 PM - 10:00 PM</span>
+              <span class="font-medium text-[clamp(0.75rem,2vw,1.25rem)]">15/10/2025</span>
+              <span class="text-[clamp(0.625rem,1.8vw,1rem)] text-gray-600">11:00 PM - 2:00 AM</span>
             </div>
-            <span class="font-semibold text-xl">O2 Arena, London</span>
+            <span class="font-semibold text-[clamp(0.75rem,2vw,1.25rem)]">Lloyds, Goa</span>
           </a>
         </li>
 
         <li>
           <a href="#" class="block py-6 flex justify-between items-center hover:bg-gray-50 px-6 rounded transition-all duration-200">
             <div class="flex flex-col">
-              <span class="font-medium text-xl">18/12/2025</span>
-              <span class="text-base text-gray-600">5:00 PM - 9:00 PM</span>
+              <span class="font-medium text-[clamp(0.75rem,2vw,1.25rem)]">15/10/2025</span>
+              <span class="text-[clamp(0.625rem,1.8vw,1rem)] text-gray-600">11:00 PM - 2:00 AM</span>
             </div>
-            <span class="font-semibold text-xl">Sydney Opera House, Sydney</span>
+            <span class="font-semibold text-[clamp(0.75rem,2vw,1.25rem)]">Grahams, Stockholm</span>
           </a>
         </li>
 
         <li>
           <a href="#" class="block py-6 flex justify-between items-center hover:bg-gray-50 px-6 rounded transition-all duration-200">
             <div class="flex flex-col">
-              <span class="font-medium text-xl">01/01/2026</span>
-              <span class="text-base text-gray-600">10:00 PM - 1:00 AM</span>
+              <span class="font-medium text-[clamp(0.75rem,2vw,1.25rem)]">15/10/2025</span>
+              <span class="text-[clamp(0.625rem,1.8vw,1rem)] text-gray-600">11:00 PM - 2:00 AM</span>
             </div>
-            <span class="font-semibold text-xl">Tokyo Dome, Tokyo</span>
+            <span class="font-semibold text-[clamp(0.75rem,2vw,1.25rem)]">Tokyo In, Tokyo</span>
           </a>
         </li>
 
         <li>
           <a href="#" class="block py-6 flex justify-between items-center hover:bg-gray-50 px-6 rounded transition-all duration-200">
             <div class="flex flex-col">
-              <span class="font-medium text-xl">14/02/2026</span>
-              <span class="text-base text-gray-600">7:00 PM - 11:00 PM</span>
+              <span class="font-medium text-[clamp(0.75rem,2vw,1.25rem)]">15/10/2025</span>
+              <span class="text-[clamp(0.625rem,1.8vw,1rem)] text-gray-600">11:00 PM - 2:00 AM</span>
             </div>
-            <span class="font-semibold text-xl">Staples Center, LA</span>
-          </a>
-        </li>
-
-        <li>
-          <a href="#" class="block py-6 flex justify-between items-center hover:bg-gray-50 px-6 rounded transition-all duration-200">
-            <div class="flex flex-col">
-              <span class="font-medium text-xl">28/03/2026</span>
-              <span class="text-base text-gray-600">8:00 PM - 12:00 AM</span>
-            </div>
-            <span class="font-semibold text-xl">Accor Arena, Paris</span>
+            <span class="font-semibold text-[clamp(0.75rem,2vw,1.25rem)]">Tip In, Delhi</span>
           </a>
         </li>
 
