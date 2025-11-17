@@ -11,7 +11,7 @@ const supportedLangs = {
 };
 
 /* ============================================================
-   INITIALIZE GOOGLE TRANSLATE ON DEMAND
+   INITIALIZE GOOGLE TRANSLATE
    ============================================================ */
 function googleTranslateElementInit() {
   if (document.getElementById('google_translate_element').children.length > 0) return;
@@ -35,7 +35,7 @@ function applyTranslation(lang) {
     select.value = lang;
     select.dispatchEvent(new Event("change"));
 
-    // Hide Google Translate banner & combo box
+    // Hide Google Translate UI
     setTimeout(() => {
       const gtFrame = document.querySelector('iframe.goog-te-banner-frame');
       if (gtFrame) gtFrame.style.display = 'none';
@@ -47,19 +47,19 @@ function applyTranslation(lang) {
 }
 
 /* ============================================================
-   BUTTON CLICK: Toggle Translation
+   BUTTON CLICK: Translate Page
    ============================================================ */
 function toggleLanguage() {
   const currentLang = sessionStorage.getItem("userLanguage");
 
-  // If already translated, reset to English
+  // If already translated, revert to English
   if (currentLang && currentLang !== "en") {
     sessionStorage.removeItem("userLanguage");
     applyTranslation("en");
     return;
   }
 
-  // Otherwise, detect browser language or default to English
+  // Translate to detected language (or fallback English)
   let lang = (navigator.language || navigator.userLanguage).toLowerCase();
   if (!supportedLangs[lang]) {
     const short = lang.split("-")[0];
@@ -74,10 +74,12 @@ function toggleLanguage() {
    AUTO-APPLY TRANSLATION ON PAGE LOAD
    ============================================================ */
 window.addEventListener('load', () => {
-  const lang = sessionStorage.getItem("userLanguage");
-  if (!lang || lang === "en") return; // nothing chosen or English, stay default
-
-  // Initialize Google Translate and apply stored language
+  // Always start in English on page load (refresh does not keep translation)
   googleTranslateElementInit();
-  applyTranslation(lang);
+
+  // Apply translation only if user previously clicked button in the same tab
+  const lang = sessionStorage.getItem("userLanguage");
+  if (lang && lang !== "en") {
+    applyTranslation(lang);
+  }
 });
