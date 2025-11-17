@@ -22,7 +22,7 @@ const supportedLangs = {
 };
 
 /* ============================================================
-   APPLY TRANSLATION
+   APPLY TRANSLATION ON BUTTON CLICK
    ============================================================ */
 function toggleLanguage(lang = null) {
   const select = document.querySelector(".goog-te-combo");
@@ -31,7 +31,7 @@ function toggleLanguage(lang = null) {
     return;
   }
 
-  // Use provided language or detect browser language
+  // Auto-detect if no lang provided
   if (!lang) {
     lang = (navigator.language || navigator.userLanguage).toLowerCase();
     if (!supportedLangs[lang]) {
@@ -54,21 +54,30 @@ function toggleLanguage(lang = null) {
 }
 
 /* ============================================================
-   APPLY SESSION LANGUAGE ON PAGE LOAD
+   APPLY SESSION LANGUAGE WHEN PAGE LOADS
    ============================================================ */
-window.addEventListener('load', () => {
+function applySessionLanguage() {
   const lang = sessionStorage.getItem("userLanguage");
   if (!lang) return;
 
-  const select = document.querySelector(".goog-te-combo");
-  if (!select) return;
+  // Wait until Google Translate dropdown exists
+  const interval = setInterval(() => {
+    const select = document.querySelector(".goog-te-combo");
+    if (select) {
+      select.value = lang;
+      select.dispatchEvent(new Event("change"));
 
-  select.value = lang;
-  select.dispatchEvent(new Event("change"));
+      setTimeout(() => {
+        const gtFrame = document.querySelector('iframe.goog-te-banner-frame');
+        if (gtFrame) gtFrame.style.display = 'none';
+      }, 500);
 
-  // Hide banner
-  setTimeout(() => {
-    const gtFrame = document.querySelector('iframe.goog-te-banner-frame');
-    if (gtFrame) gtFrame.style.display = 'none';
-  }, 500);
+      clearInterval(interval); // stop polling
+    }
+  }, 100); // check every 100ms
+}
+
+// Run on page load
+window.addEventListener('load', () => {
+  applySessionLanguage();
 });
