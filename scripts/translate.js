@@ -1,29 +1,4 @@
 /* ============================================================
-   SUPPORTED LANGUAGES
-   ============================================================ */
-const supportedLangs = {
-  "es":"Spanish","pt":"Portuguese","fr":"French","de":"German",
-  "sv":"Swedish","ar":"Arabic","nl":"Dutch","cs":"Czech",
-  "hu":"Hungarian","sr":"Serbian","sk":"Slovak","ru":"Russian",
-  "hi":"Hindi","it":"Italian","el":"Greek","th":"Thai",
-  "tr":"Turkish","zh-CN":"Chinese Simplified","zh-TW":"Chinese Traditional",
-  "ja":"Japanese","ko":"Korean"
-};
-
-/* ============================================================
-   INITIALIZE GOOGLE TRANSLATE
-   ============================================================ */
-function googleTranslateElementInit() {
-  if (document.getElementById('google_translate_element').children.length > 0) return;
-
-  new google.translate.TranslateElement({
-    pageLanguage: 'en',
-    autoDisplay: false,
-    includedLanguages: Object.keys(supportedLangs).join(',')
-  }, 'google_translate_element');
-}
-
-/* ============================================================
    APPLY TRANSLATION SEAMLESSLY
    ============================================================ */
 function applyTranslation(lang) {
@@ -52,8 +27,8 @@ function applyTranslation(lang) {
 function toggleLanguage() {
   const currentLang = sessionStorage.getItem("userLanguage");
 
-  // If already translated, revert to English
   if (currentLang && currentLang !== "en") {
+    // If already translated, revert to English
     sessionStorage.removeItem("userLanguage");
     applyTranslation("en");
     return;
@@ -61,10 +36,8 @@ function toggleLanguage() {
 
   // Translate to detected language (or fallback English)
   let lang = (navigator.language || navigator.userLanguage).toLowerCase();
-  if (!supportedLangs[lang]) {
-    const short = lang.split("-")[0];
-    lang = supportedLangs[short] ? short : "en";
-  }
+  const shortLang = lang.split("-")[0];
+  lang = supportedLangs[lang] ? lang : supportedLangs[shortLang] ? shortLang : "en";
 
   sessionStorage.setItem("userLanguage", lang);
   applyTranslation(lang);
@@ -74,10 +47,9 @@ function toggleLanguage() {
    AUTO-APPLY TRANSLATION ON PAGE LOAD
    ============================================================ */
 window.addEventListener('load', () => {
-  // Always start in English on page load (refresh does not keep translation)
   googleTranslateElementInit();
 
-  // Apply translation only if user previously clicked button in the same tab
+  // Only apply translation if user clicked translate in this tab
   const lang = sessionStorage.getItem("userLanguage");
   if (lang && lang !== "en") {
     applyTranslation(lang);
