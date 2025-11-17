@@ -199,9 +199,31 @@
     <button id="closeTermsModal" class="absolute top-4 right-4 text-gray-700 hover:text-black font-bold text-lg">&times;</button>
   </div>
 </div>
+
+<footer class="relative bg-black text-white py-32 border-t border-gray-700">
+  <div class="max-w-screen-2xl mx-auto px-6 sm:px-10 lg:px-20 relative">
+
+    <!-- Left: Translate Button -->
+    <button 
+      class="absolute left-6 top-1/2 -translate-y-1/2 flex items-center px-0 py-0 rounded-full transition-transform duration-300"
+      onclick="toggleLanguage()">
+      <img src="./assets/lng1.png" alt="Translate Icon" class="w-6 h-6 lg:w-7 lg:h-7 object-contain">
+    </button>
+
+    <div id="google_translate_element" style="display:none;"></div>
+
+    <!-- Center: Logo and Copyright -->
+    <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center text-center">
+      <img src="./assets/logoWhite.png" alt="Karun Mahtani Logo" class="w-36 sm:w-56 lg:w-64 mb-4">
+      <p class="text-xs sm:text-sm md:text-base text-gray-400 ">&copy; 2025 Karun Mahtani Pvt Ltd. All rights reserved.</p>
+    </div>
+
+  </div>
+</footer>
+
 <script src="./scripts/mainScript.js"></script>
 <script src="./scripts/contactScripts.js"></script>
-<div id="google_translate_element" style="display:none;"></div>
+
 </body>
 </html>
 
