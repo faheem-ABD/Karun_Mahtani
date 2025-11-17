@@ -1,15 +1,4 @@
 /* ============================================================
-   GOOGLE TRANSLATE INITIALIZATION
-   ============================================================ */
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({
-    pageLanguage: 'en',
-    autoDisplay: false,
-    includedLanguages: 'es,pt,fr,de,sv,ar,nl,cs,hu,sr,sk,ru,hi,it,el,th,tr,zh-CN,zh-TW,ja,ko'
-  }, 'google_translate_element');
-}
-
-/* ============================================================
    SUPPORTED LANGUAGES
    ============================================================ */
 const supportedLangs = {
@@ -22,62 +11,58 @@ const supportedLangs = {
 };
 
 /* ============================================================
-   APPLY TRANSLATION ON BUTTON CLICK
+   INITIALIZE GOOGLE TRANSLATE ON DEMAND
    ============================================================ */
-function toggleLanguage(lang = null) {
-  const select = document.querySelector(".goog-te-combo");
-  if (!select) {
-    alert("Translation engine is still loading. Try again in a moment.");
-    return;
-  }
-
-  // Auto-detect if no lang provided
-  if (!lang) {
-    lang = (navigator.language || navigator.userLanguage).toLowerCase();
-    if (!supportedLangs[lang]) {
-      const short = lang.split("-")[0];
-      lang = supportedLangs[short] ? short : "en";
-    }
-  }
-
-  select.value = lang;
-  select.dispatchEvent(new Event("change"));
-
-  // Hide Google Translate banner
-  setTimeout(() => {
-    const gtFrame = document.querySelector('iframe.goog-te-banner-frame');
-    if (gtFrame) gtFrame.style.display = 'none';
-  }, 500);
-
-  // Save language for this session
-  sessionStorage.setItem("userLanguage", lang);
+function googleTranslateElementInit() {
+  if (document.getElementById('google_translate_element').children.length > 0) return;
+  
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    autoDisplay: false,
+    includedLanguages: Object.keys(supportedLangs).join(',')
+  }, 'google_translate_element');
 }
 
 /* ============================================================
-   APPLY SESSION LANGUAGE WHEN PAGE LOADS
+   APPLY TRANSLATION WHEN BUTTON IS CLICKED
    ============================================================ */
-function applySessionLanguage() {
-  const lang = sessionStorage.getItem("userLanguage");
-  if (!lang) return;
+function toggleLanguage(lang = null) {
+  // Initialize Google Translate only once
+  googleTranslateElementInit();
 
-  // Wait until Google Translate dropdown exists
+  // Wait until dropdown exists
   const interval = setInterval(() => {
     const select = document.querySelector(".goog-te-combo");
-    if (select) {
-      select.value = lang;
-      select.dispatchEvent(new Event("change"));
+    if (!select) return;
 
-      setTimeout(() => {
-        const gtFrame = document.querySelector('iframe.goog-te-banner-frame');
-        if (gtFrame) gtFrame.style.display = 'none';
-      }, 500);
+    clearInterval(interval);
 
-      clearInterval(interval); // stop polling
+    // Auto-detect if no language provided
+    if (!lang) {
+      lang = (navigator.language || navigator.userLanguage).toLowerCase();
+      if (!supportedLangs[lang]) {
+        const short = lang.split("-")[0];
+        lang = supportedLangs[short] ? short : "en";
+      }
     }
-  }, 100); // check every 100ms
+
+    select.value = lang;
+    select.dispatchEvent(new Event("change"));
+
+    // Hide Google Translate banner
+    setTimeout(() => {
+      const gtFrame = document.querySelector('iframe.goog-te-banner-frame');
+      if (gtFrame) gtFrame.style.display = 'none';
+    }, 500);
+
+  }, 100); // poll every 100ms
 }
 
-// Run on page load
+/* ============================================================
+   OPTIONAL: Reset translation on page load
+   ============================================================ */
 window.addEventListener('load', () => {
-  applySessionLanguage();
+  // Ensure page loads in English
+  const gtFrame = document.querySelector('iframe.goog-te-banner-frame');
+  if (gtFrame) gtFrame.style.display = 'none';
 });
