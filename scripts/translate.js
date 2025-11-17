@@ -14,7 +14,7 @@ function googleTranslateElementInit() {
 }
 
 /* ============================================================
-   SUPPORTED LANGUAGES (Google Translate Codes)
+   SUPPORTED LANGUAGES
    ============================================================ */
 const supportedLangs = {
   "es": "Spanish",
@@ -67,10 +67,9 @@ function getMatchingLanguageCode() {
 }
 
 /* ============================================================
-   PERSIST LANGUAGE USING COOKIE
+   COOKIE FUNCTIONS
    ============================================================ */
 function setLanguageCookie(lang) {
-  // expires in 30 days
   const d = new Date();
   d.setTime(d.getTime() + 30*24*60*60*1000);
   const expires = "expires=" + d.toUTCString();
@@ -83,7 +82,7 @@ function getLanguageCookie() {
 }
 
 /* ============================================================
-   HIDE GOOGLE TRANSLATE TOP BANNER
+   HIDE GOOGLE TRANSLATE BANNER
    ============================================================ */
 function hideGoogleTranslateBanner() {
   const gtFrame = document.querySelector('iframe.goog-te-banner-frame');
@@ -93,15 +92,9 @@ function hideGoogleTranslateBanner() {
 }
 
 /* ============================================================
-   APPLY TRANSLATION
+   TRANSLATE PAGE ON DEMAND
    ============================================================ */
-function toggleLanguage() {
-  let lang = getMatchingLanguageCode();
-  if (!lang) {
-    alert("Your browser language is not supported for translation.");
-    return;
-  }
-
+function toggleLanguage(lang = null) {
   const select = document.querySelector(".goog-te-combo");
 
   if (!select) {
@@ -109,35 +102,38 @@ function toggleLanguage() {
     return;
   }
 
-  // Trigger translation
+  // Use provided lang or detect browser language
+  if (!lang) {
+    lang = getMatchingLanguageCode();
+    if (!lang) {
+      alert("Your browser language is not supported for translation.");
+      return;
+    }
+  }
+
   select.value = lang;
   select.dispatchEvent(new Event("change"));
 
-  // Remember for other pages
   setLanguageCookie(lang);
-
-  // Hide the Google Translate banner
   setTimeout(hideGoogleTranslateBanner, 500);
 }
 
 /* ============================================================
-   APPLY PREVIOUS LANGUAGE ON PAGE LOAD (IF COOKIE EXISTS)
+   PRE-SELECT LANGUAGE WITHOUT TRANSLATING
    ============================================================ */
 function applyPersistentLanguage() {
-  const lang = getLanguageCookie();
+  const lang = getLanguageCookie() || getMatchingLanguageCode();
   if (!lang) return;
 
   const select = document.querySelector(".goog-te-combo");
   if (!select) return;
 
+  // Pre-select in dropdown but DO NOT trigger translation
   select.value = lang;
-  select.dispatchEvent(new Event("change"));
-
-  setTimeout(hideGoogleTranslateBanner, 500);
 }
 
 // Run on page load
 window.addEventListener('load', () => {
-  // Delay to ensure Google Translate is fully initialized
+  // Delay to ensure Google Translate is loaded
   setTimeout(applyPersistentLanguage, 1000);
 });
