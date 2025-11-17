@@ -15,7 +15,7 @@ const supportedLangs = {
    ============================================================ */
 function googleTranslateElementInit() {
   if (document.getElementById('google_translate_element').children.length > 0) return;
-  
+
   new google.translate.TranslateElement({
     pageLanguage: 'en',
     autoDisplay: false,
@@ -30,11 +30,9 @@ function toggleLanguage(lang = null) {
   // Initialize Google Translate only once
   googleTranslateElementInit();
 
-  // Wait until dropdown exists
   const interval = setInterval(() => {
     const select = document.querySelector(".goog-te-combo");
     if (!select) return;
-
     clearInterval(interval);
 
     // Auto-detect if no language provided
@@ -49,20 +47,37 @@ function toggleLanguage(lang = null) {
     select.value = lang;
     select.dispatchEvent(new Event("change"));
 
-    // Hide Google Translate banner
+    // Hide the Google Translate banner
     setTimeout(() => {
       const gtFrame = document.querySelector('iframe.goog-te-banner-frame');
       if (gtFrame) gtFrame.style.display = 'none';
     }, 500);
 
-  }, 100); // poll every 100ms
+    // Remember language in sessionStorage for this tab
+    sessionStorage.setItem("userLanguage", lang);
+
+  }, 100);
 }
 
 /* ============================================================
-   OPTIONAL: Reset translation on page load
+   APPLY SESSION LANGUAGE ON PAGE LOAD
    ============================================================ */
 window.addEventListener('load', () => {
-  // Ensure page loads in English
-  const gtFrame = document.querySelector('iframe.goog-te-banner-frame');
-  if (gtFrame) gtFrame.style.display = 'none';
+  const lang = sessionStorage.getItem("userLanguage");
+  if (!lang) return;
+
+  const interval = setInterval(() => {
+    const select = document.querySelector(".goog-te-combo");
+    if (!select) return;
+    clearInterval(interval);
+
+    select.value = lang;
+    select.dispatchEvent(new Event("change"));
+
+    // Hide Google Translate banner
+    setTimeout(() => {
+      const gtFrame = document.querySelector('iframe.goog-te-banner-frame');
+      if (gtFrame) gtFrame.style.display = 'none';
+    }, 500);
+  }, 100);
 });
