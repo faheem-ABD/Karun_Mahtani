@@ -24,48 +24,9 @@ function googleTranslateElementInit() {
 }
 
 /* ============================================================
-   APPLY TRANSLATION WHEN BUTTON IS CLICKED
+   APPLY TRANSLATION
    ============================================================ */
-function toggleLanguage(lang = null) {
-  // Initialize Google Translate only once
-  googleTranslateElementInit();
-
-  const interval = setInterval(() => {
-    const select = document.querySelector(".goog-te-combo");
-    if (!select) return;
-    clearInterval(interval);
-
-    // Auto-detect if no language provided
-    if (!lang) {
-      lang = (navigator.language || navigator.userLanguage).toLowerCase();
-      if (!supportedLangs[lang]) {
-        const short = lang.split("-")[0];
-        lang = supportedLangs[short] ? short : "en";
-      }
-    }
-
-    select.value = lang;
-    select.dispatchEvent(new Event("change"));
-
-    // Hide the Google Translate banner
-    setTimeout(() => {
-      const gtFrame = document.querySelector('iframe.goog-te-banner-frame');
-      if (gtFrame) gtFrame.style.display = 'none';
-    }, 500);
-
-    // Remember language in sessionStorage for this tab
-    sessionStorage.setItem("userLanguage", lang);
-
-  }, 100);
-}
-
-/* ============================================================
-   APPLY SESSION LANGUAGE ON PAGE LOAD
-   ============================================================ */
-window.addEventListener('load', () => {
-  const lang = sessionStorage.getItem("userLanguage");
-  if (!lang) return;
-
+function applyTranslation(lang) {
   const interval = setInterval(() => {
     const select = document.querySelector(".goog-te-combo");
     if (!select) return;
@@ -80,4 +41,39 @@ window.addEventListener('load', () => {
       if (gtFrame) gtFrame.style.display = 'none';
     }, 500);
   }, 100);
+}
+
+/* ============================================================
+   BUTTON CLICK: Translate Page
+   ============================================================ */
+function toggleLanguage(lang = null) {
+  // Initialize Google Translate if not already
+  googleTranslateElementInit();
+
+  // Auto-detect language if none provided
+  if (!lang) {
+    lang = (navigator.language || navigator.userLanguage).toLowerCase();
+    if (!supportedLangs[lang]) {
+      const short = lang.split("-")[0];
+      lang = supportedLangs[short] ? short : "en";
+    }
+  }
+
+  // Save language in sessionStorage for other pages
+  sessionStorage.setItem("userLanguage", lang);
+
+  // Apply translation
+  applyTranslation(lang);
+}
+
+/* ============================================================
+   AUTO-APPLY TRANSLATION ON PAGE LOAD
+   ============================================================ */
+window.addEventListener('load', () => {
+  const lang = sessionStorage.getItem("userLanguage");
+  if (!lang) return; // nothing chosen yet, stay in English
+
+  // Initialize Google Translate and auto-apply stored language
+  googleTranslateElementInit();
+  applyTranslation(lang);
 });
