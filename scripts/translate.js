@@ -24,7 +24,7 @@ function googleTranslateElementInit() {
 }
 
 /* ============================================================
-   APPLY TRANSLATION
+   APPLY TRANSLATION SEAMLESSLY
    ============================================================ */
 function applyTranslation(lang) {
   const interval = setInterval(() => {
@@ -35,34 +35,38 @@ function applyTranslation(lang) {
     select.value = lang;
     select.dispatchEvent(new Event("change"));
 
-    // Hide Google Translate banner
+    // Hide Google Translate banner & combo box
     setTimeout(() => {
       const gtFrame = document.querySelector('iframe.goog-te-banner-frame');
       if (gtFrame) gtFrame.style.display = 'none';
+
+      const gtWidget = document.querySelector('#google_translate_element');
+      if (gtWidget) gtWidget.style.display = 'none';
     }, 500);
   }, 100);
 }
 
 /* ============================================================
-   BUTTON CLICK: Translate Page
+   BUTTON CLICK: Toggle Translation
    ============================================================ */
-function toggleLanguage(lang = null) {
-  // Initialize Google Translate if not already
-  googleTranslateElementInit();
+function toggleLanguage() {
+  const currentLang = sessionStorage.getItem("userLanguage");
 
-  // Auto-detect language if none provided
-  if (!lang) {
-    lang = (navigator.language || navigator.userLanguage).toLowerCase();
-    if (!supportedLangs[lang]) {
-      const short = lang.split("-")[0];
-      lang = supportedLangs[short] ? short : "en";
-    }
+  // If already translated, reset to English
+  if (currentLang && currentLang !== "en") {
+    sessionStorage.removeItem("userLanguage");
+    applyTranslation("en");
+    return;
   }
 
-  // Save language in sessionStorage for other pages
-  sessionStorage.setItem("userLanguage", lang);
+  // Otherwise, detect browser language or default to English
+  let lang = (navigator.language || navigator.userLanguage).toLowerCase();
+  if (!supportedLangs[lang]) {
+    const short = lang.split("-")[0];
+    lang = supportedLangs[short] ? short : "en";
+  }
 
-  // Apply translation
+  sessionStorage.setItem("userLanguage", lang);
   applyTranslation(lang);
 }
 
@@ -71,9 +75,9 @@ function toggleLanguage(lang = null) {
    ============================================================ */
 window.addEventListener('load', () => {
   const lang = sessionStorage.getItem("userLanguage");
-  if (!lang) return; // nothing chosen yet, stay in English
+  if (!lang || lang === "en") return; // nothing chosen or English, stay default
 
-  // Initialize Google Translate and auto-apply stored language
+  // Initialize Google Translate and apply stored language
   googleTranslateElementInit();
   applyTranslation(lang);
 });
