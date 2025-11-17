@@ -11,6 +11,15 @@ const supportedLangs = {
 };
 
 /* ============================================================
+   RESET GOOGLE TRANSLATE TO ENGLISH
+   ============================================================ */
+function resetGoogleTranslateCookie() {
+  // Force English
+  document.cookie = "googtrans=/en/en;path=/";
+  document.cookie = "googtrans=/en/en;path=/;domain=" + location.hostname;
+}
+
+/* ============================================================
    INITIALIZE GOOGLE TRANSLATE ON DEMAND
    ============================================================ */
 function googleTranslateElementInit() {
@@ -55,6 +64,7 @@ function toggleLanguage() {
   // If already translated, reset to English
   if (currentLang && currentLang !== "en") {
     sessionStorage.removeItem("userLanguage");
+    resetGoogleTranslateCookie();
     applyTranslation("en");
     return;
   }
@@ -71,13 +81,9 @@ function toggleLanguage() {
 }
 
 /* ============================================================
-   AUTO-APPLY TRANSLATION ON PAGE LOAD
+   AUTO-LOAD GOOGLE TRANSLATE WITHOUT TRANSLATING
    ============================================================ */
 window.addEventListener('load', () => {
-  const lang = sessionStorage.getItem("userLanguage");
-  if (!lang || lang === "en") return; // nothing chosen or English, stay default
-
-  // Initialize Google Translate and apply stored language
+  resetGoogleTranslateCookie(); // Ensure default English
   googleTranslateElementInit();
-  applyTranslation(lang);
 });
