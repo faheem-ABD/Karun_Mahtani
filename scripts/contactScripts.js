@@ -24,46 +24,6 @@ if (countrySelect) {
     });
 }
 
-
-  // --- Contact page menu ---
-  const contacthamburgerContainer = document.getElementById('contacthamburgerContainer');
-  const contacthamburger = document.getElementById('contacthamburger');
-  const contactmenuText = document.getElementById('contactmenuText');
-
-  function showcontactHamburger() {
-    if (!contacthamburger || !contactmenuText) return;
-
-    // Reset hamburger bars
-    contacthamburger.querySelectorAll("span").forEach(span => {
-      span.classList.remove("bg-red-500");
-      span.classList.add("bg-black");
-    });
-
-    contactmenuText.textContent = 'MENU';
-    contactmenuText.classList.remove('text-red-500');
-    contactmenuText.classList.add('text-black');
-
-    //  Correct event binding
-    contacthamburgerContainer.addEventListener('click', () => {
-      window.location.href = 'main.html';
-    });
-  }
-  if (contacthamburgerContainer && contacthamburger && contactmenuText) {
-    contacthamburgerContainer.addEventListener('mouseenter', () => {
-      contacthamburger.querySelectorAll('span').forEach(span => {
-        span.classList.add('bg-red-500');
-      });
-      contactmenuText.classList.add('text-red-500');
-    });
-
-    contacthamburgerContainer.addEventListener('mouseleave', () => {
-      contacthamburger.querySelectorAll('span').forEach(span => {
-        span.classList.remove('bg-red-500');
-      });
-      contactmenuText.classList.remove('text-red-500');
-    });
-  }
-
   // --- Terms and Conditions modal (FADE VERSION) ---
   const openBtn = document.getElementById('openTermsModal');
   const closeBtn = document.getElementById('closeTermsModal');

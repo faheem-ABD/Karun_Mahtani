@@ -22,33 +22,34 @@
 
 <body class="flex flex-col min-h-screen">
 
-
-
 <header id="datesPageHeader" 
   class="bg-white fixed top-0 left-0 right-0 w-full z-50 
          pt-6 pb-6 sm:pt-4 sm:pb-4 md:pt-3 md:pb-3 lg:pt-6 lg:pb-6 xl:pt-8 xl:pb-8 2xl:pt-10 2xl:pb-10
          transition-all duration-700 overflow-hidden">
 
+<div class="relative max-w-screen-3xl mx-auto px-3 sm:px-4 flex items-center justify-between">
 
-  <div class="relative max-w-screen-3xl mx-auto px-3 sm:px-4 flex items-center justify-between">
+    <!-- Hamburger + MENU  -->
+    <div id="hamburgerContainer" 
+      class="flex items-center gap-1 sm:gap-2 lg:gap-3 cursor-pointer whitespace-nowrap z-10">
 
-    <!-- Hamburger + MENU -->
-    <div id="dateshamburgerContainer" class="flex items-center gap-1 sm:gap-2 lg:gap-3 cursor-pointer whitespace-nowrap z-10">
-
-      <div id="dateshamburger" class="flex flex-col gap-0.5 sm:gap-1">
+      <div id="hamburger" class="flex flex-col gap-0.5 sm:gap-1">
         <span class="block h-0.5 w-3 sm:w-4 lg:w-6 bg-black transition-colors duration-200"></span>
         <span class="block h-0.5 w-3 sm:w-4 lg:w-6 bg-black transition-colors duration-200"></span>
         <span class="block h-0.5 w-3 sm:w-4 lg:w-6 bg-black transition-colors duration-200"></span>
       </div>
 
-      <span id="datesmenuText" class="header-font font-thin text-black text-sm sm:text-base lg:text-xl">MENU</span>
+      <span id="menuText" class="header-font font-thin text-black text-sm sm:text-base lg:text-xl">MENU</span>
     </div>
 
+          <!-- Logo wrapper -->
     <div class="absolute inset-x-0 flex justify-center pointer-events-none">
-        <img src="./assets/logoBlack.png" alt="Karun Mahtani Logo" 
-            class="w-[9rem] sm:w-[8rem] md:w-[16rem] lg:w-[26rem] 
-                    -translate-x-[2%] sm:translate-x-0" />
-      </div>
+      <img src="./assets/logoBlack.png" alt="Karun Mahtani Logo" 
+          class="w-[9rem] sm:w-[8rem] md:w-[16rem] lg:w-[26rem] 
+                  -translate-x-[2%] sm:translate-x-0" />
+    </div>
+
+
     <!-- Help & Service -->
     <div id="helpContact" class="flex items-center gap-1 sm:gap-2 lg:gap-3 rounded cursor-pointer transition-colors duration-200 z-10">
       <div class="w-5 h-5 text-[0.7rem]          
@@ -59,7 +60,80 @@
         ?
       </div>
     </div>
+
 </header>
+
+<!-- Dropdown Panel -->
+<div id="dropdownMenu"
+     class="fixed inset-0 sm:inset-x-0 sm:top-0 bg-white shadow-md z-40
+            overflow-y-auto transition-[max-height] duration-500">
+
+  <div class="max-w-screen-3xl mx-auto px-6 sm:px-10 lg:px-20 py-16
+              flex flex-col sm:flex-row justify-center items-start
+              gap-16 sm:gap-24 lg:gap-32">
+
+    <!-- DATA Section -->
+    <div class="flex flex-col gap-2 sm:gap-8 lg:gap-10 text-left">
+      <span class="header-font font-thin lg:font-normal text-black/60 text-sm sm:text-base lg:text-lg">
+        DATA
+      </span>
+
+      <a href="about.html"
+         class="header-font font-thin lg:font-normal text-black text-sm sm:text-base lg:text-lg hover:text-red-500 transition-colors duration-200">
+         ABOUT
+      </a>
+
+      <a href="dates.html"
+         class="header-font font-thin lg:font-normal text-black text-sm sm:text-base lg:text-lg hover:text-red-500 transition-colors duration-200">
+         DATES
+      </a>
+
+      <a href="main.html"
+         class="header-font font-thin lg:font-normal text-black text-sm sm:text-base lg:text-lg hover:text-red-500 transition-colors duration-200">
+         HOME
+      </a>
+    </div>
+
+    <!-- SOCIALS Section -->
+    <div class="flex flex-col gap-2 sm:gap-8 lg:gap-10 text-left">
+      <span class="header-font font-thin lg:font-normal text-black/60 text-sm sm:text-base lg:text-lg">
+        SOCIALS
+      </span>
+
+      <a href="https://www.instagram.com/karunmahtani?igsh=anI4aGxqeXRmYzJk"
+         target="_blank" rel="noopener noreferrer"
+         class="header-font font-thin lg:font-normal text-black text-sm sm:text-base lg:text-lg hover:text-red-500 transition-colors duration-200">
+         INSTAGRAM
+      </a>
+
+      <a href="https://www.tiktok.com/@karunmahtani?lang=en-GB"
+         target="_blank" rel="noopener noreferrer"
+         class="header-font font-thin lg:font-normal text-black text-sm sm:text-base lg:text-lg hover:text-red-500 transition-colors duration-200">
+         TIKTOK
+      </a>
+
+      <a href="https://www.facebook.com/profile.php?id=61579875883452"
+         target="_blank" rel="noopener noreferrer"
+         class="header-font font-thin lg:font-normal text-black text-sm sm:text-base lg:text-lg hover:text-red-500 transition-colors duration-200">
+         FACEBOOK
+      </a>
+
+      <a href="https://www.youtube.com/@KarunMahtani"
+         target="_blank" rel="noopener noreferrer"
+         class="header-font font-thin lg:font-normal text-black text-sm sm:text-base lg:text-lg hover:text-red-500 transition-colors duration-200">
+         YOUTUBE
+      </a>
+
+      <a href="https://x.com/KarunMahtani"
+         target="_blank" rel="noopener noreferrer"
+         class="header-font font-thin lg:font-normal text-black text-sm sm:text-base lg:text-lg hover:text-red-500 transition-colors duration-200">
+         X
+      </a>
+    </div>
+
+  </div>
+</div>
+
 
 <main class="pt-[120px] sm:pt-[250px] lg:pt-[180px] flex flex-col items-center gap-20 px-6 sm:px-0 pb-0 flex-grow">
 
@@ -190,8 +264,8 @@
   </div>
 </footer>
 <div id="google_translate_element" style="display:none;"></div>
-<script src="./scripts/mainScript.js"></script>
-<script src="./scripts/datesScripts.js"></script>
+
+<script src="./scripts/nav.js"></script>
 <script src="./scripts/translate.js"></script>
 
 </body>
