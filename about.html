@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>#fadeEffect {
+  pointer-events: none;
+}
+</style>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+   .header-font {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 400; 
+      text-transform: uppercase; 
+      letter-spacing: 0.005em;
+    }
+    #dropdownMenu {
+      transform: translateY(-0.5px);
+      transition: max-height 0.5s ease-in-out, opacity 0.3s ease-in-out;
+     }
+  </style>
+</head>
+
+<body class="pt-[180px] sm:pt-[140px] md:pt-[120px] lg:pt-[180px] xl:pt-[220px] 2xl:pt-[260px]">
+
+<header id="aboutPageHeader" 
+  class="bg-white fixed top-0 left-0 right-0 w-full z-50 
+         pt-6 pb-6 sm:pt-4 sm:pb-4 md:pt-3 md:pb-3 lg:pt-6 lg:pb-6 xl:pt-8 xl:pb-8 2xl:pt-10 2xl:pb-10
+         transition-all duration-700 overflow-hidden">
+
+
+  <div class="relative max-w-screen-3xl mx-auto px-3 sm:px-4 flex items-center justify-between">
+
+    <!-- Hamburger + MENU -->
+    <div id="abouthamburgerContainer" class="flex items-center gap-1 sm:gap-2 lg:gap-3 cursor-pointer whitespace-nowrap z-10">
+
+      <div id="abouthamburger" class="flex flex-col gap-0.5 sm:gap-1">
+        <span class="block h-0.5 w-3 sm:w-4 lg:w-6 bg-black transition-colors duration-200"></span>
+        <span class="block h-0.5 w-3 sm:w-4 lg:w-6 bg-black transition-colors duration-200"></span>
+        <span class="block h-0.5 w-3 sm:w-4 lg:w-6 bg-black transition-colors duration-200"></span>
+      </div>
+
+      <span id="aboutmenuText" class="header-font font-thin text-black text-sm sm:text-base lg:text-xl">MENU</span>
+    </div>
+
+   <div class="absolute inset-x-0 flex justify-center pointer-events-none">
+      <img src="./assets/logoBlack.png" alt="KarunMahtani Logo" 
+          class="w-[9rem] sm:w-[8rem] md:w-[16rem] lg:w-[26rem] 
+                  -translate-x-[2%] sm:translate-x-0" />
+    </div>
+    <!-- Help & Service -->
+    <div id="helpContact" class="flex items-center gap-1 sm:gap-2 lg:gap-3 rounded cursor-pointer transition-colors duration-200 z-10">
+      <div class="w-5 h-5 text-[0.7rem]          
+                  sm:w-5 sm:h-5 sm:text-[0.7rem]  
+                  md:w-6 md:h-6 md:text-sm            
+                  lg:w-8 lg:h-8 lg:text-base         
+                  flex items-center justify-center rounded-full bg-[#fdb930] border border-black text-black font-normal transition-all duration-200">
+        ?
+      </div>
+    </div>
+</header>
+
+ <section class="max-w-screen-xl mx-auto px-6 py-20 grid grid-cols-1 md:grid-cols-2 gap-20">
+
+  <!-- LEFT: BIO TEXT -->
+  <div class="flex flex-col justify-start -ml-6 md:-ml-12 lg:-ml-20">
+    <h2 class="text-4xl font-bold mb-6">Karun Mahtani - DJ & Producer</h2>
+
+    <div class="relative overflow-hidden max-h-36" id="bioPreview">
+      <p class="text-lg leading-relaxed text-gray-800">
+        Karun Mahtani is an internationally recognized DJ, songwriter and producer. He is
+        known for his energetic sets, innovative sound design, and ability to create
+        unforgettable live experiences. Since his early days, Karun has performed at premier
+        venues around the world, blending rhythms, cultures and modern electronic elements
+        into a truly signature sound.
+      </p>
+
+      <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white to-transparent pointer-events-none" id="fadeBio"></div>
+    </div>
+
+    <p id="fullBio" class="text-lg leading-relaxed text-gray-800 mt-4 hidden">
+      With deep musical roots and years of experience, Karun continues to evolve his craft—experimenting
+      with new genres while maintaining a strong connection to his audience. His performances are
+      more than music; they are immersive journeys that leave fans wanting more.
+    </p>
+
+    <button 
+      id="bioToggle"
+      class="mt-4 text-black px-5 py-2 rounded-full transition duration-300">
+      Read More
+    </button>
+  </div>
+
+  <div class="flex flex-col justify-start self-start -mr-10 md:-mr-20 lg:-mr-32">
+
+  <!-- WRAPPER keeps image + buttons aligned -->
+  <div class="flex flex-col items-start">
+
+    <!-- IMAGE -->
+    <img 
+      src="./assets/aboutImage.jpeg" 
+      alt="Karun Mahtani" 
+      class="w-96 md:w-[450px] lg:w-[610px] object-contain"
+    />
+
+    <!-- BUTTON ROW WITH EQUAL WIDTH BUTTONS -->
+    <div class="flex items-center mt-6 gap-4">
+
+      <!-- REQUEST A SHOW -->
+      <a href="request.html" 
+         class="w-48 sm:w-60 md:w-64 lg:w-72
+                bg-black text-white font-bold px-4 py-6 text-sm 
+                hover:bg-yellow-500 transition-colors duration-300
+                rounded-none text-center">
+        REQUEST A SHOW
+      </a>
+
+      <!-- VERTICAL LINE -->
+      <div class="w-[1px] h-16 bg-black"></div>
+
+      <!-- BOOK KARUN MAHTANI (SLIGHTLY LIGHTER BLACK) -->
+      <a href="bookings.html" 
+         class="w-48 sm:w-60 md:w-64 lg:w-72 
+                bg-[#3A3A3A] text-white font-bold px-4 py-6 text-sm 
+                hover:bg-yellow-500 transition-colors duration-300
+                rounded-none text-center">
+        BOOK KARUN MAHTANI
+      </a>
+
+    </div>
+
+  </div>
+</div>
+
+</section>
+
+
+
+<footer class="relative bg-black text-white py-32 border-t border-gray-700">
+  <div class="max-w-screen-2xl mx-auto px-6 sm:px-10 lg:px-20 relative">
+
+    <!-- Left: Translate Button -->
+    <button 
+      class="absolute left-6 top-1/2 -translate-y-1/2 flex items-center px-0 py-0 rounded-full transition-transform duration-300"
+      onclick="toggleLanguage()">
+      <img src="./assets/lng1.png" alt="Translate Icon" class="w-6 h-6 lg:w-7 lg:h-7 object-contain">
+    </button>
+
+    <!-- Center: Logo and Copyright -->
+    <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center text-center">
+      <img src="./assets/logoWhite.png" alt="Karun Mahtani Logo" class="w-36 sm:w-56 lg:w-64 mb-4">
+      <p class="text-xs sm:text-sm md:text-base text-gray-400 ">&copy; 2025 Karun Mahtani Pvt Ltd. All rights reserved.</p>
+    </div>
+
+  </div>
+</footer>
+<div id="google_translate_element" style="display:none;"></div>
+
+<script src="./scripts/mainScript.js"></script>
+<script src="./scripts/translate.js"></script>
+<script src="./scripts/aboutScript.js"></script>
+
+</body>
+</html>
+
