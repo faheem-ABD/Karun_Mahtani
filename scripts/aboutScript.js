@@ -19,3 +19,13 @@ toggleBtn.addEventListener("click", () => {
   }
 });
 
+document.querySelectorAll('.faq-toggle').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const content = btn.nextElementSibling;
+    const icon = btn.querySelector('span:last-child');
+    
+    content.classList.toggle('hidden');
+    icon.textContent = icon.textContent === '+' ? '–' : '+';
+  });
+});
+
