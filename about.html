@@ -5,340 +5,224 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>#fadeEffect {
-  pointer-events: none;
-}
-</style>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
-   .header-font {
+    .header-font {
       font-family: 'Oswald', sans-serif;
-      font-weight: 400; 
-      text-transform: uppercase; 
+      font-weight: 400;
+      text-transform: uppercase;
       letter-spacing: 0.005em;
+    }
+    #fadeEffect {
+      pointer-events: none;
     }
     #dropdownMenu {
       transform: translateY(-0.5px);
       transition: max-height 0.5s ease-in-out, opacity 0.3s ease-in-out;
-     }
+    }
   </style>
 </head>
 
 <body class="pt-[180px] sm:pt-[140px] md:pt-[120px] lg:pt-[180px] xl:pt-[220px] 2xl:pt-[260px]">
 
   <header id="aboutPageHeader" 
-  class="bg-white fixed top-0 left-0 right-0 w-full z-50 
-         pt-6 pb-6 sm:pt-4 sm:pb-4 md:pt-3 md:pb-3 lg:pt-6 lg:pb-6 xl:pt-8 xl:pb-8 2xl:pt-10 2xl:pb-10
-         transition-all duration-700 overflow-hidden">
+          class="bg-white fixed top-0 left-0 right-0 w-full z-50 pt-6 pb-6 sm:pt-4 sm:pb-4 md:pt-3 md:pb-3 lg:pt-6 lg:pb-6 xl:pt-8 xl:pb-8 2xl:pt-10 2xl:pb-10 transition-all duration-700 overflow-hidden">
 
-<div class="relative max-w-screen-3xl mx-auto px-3 sm:px-4 flex items-center justify-between">
+    <div class="relative max-w-screen-3xl mx-auto px-3 sm:px-4 flex items-center justify-between">
 
-    <!-- Hamburger + MENU  -->
-    <div id="hamburgerContainer" 
-      class="flex items-center gap-1 sm:gap-2 lg:gap-3 cursor-pointer whitespace-nowrap z-10">
-
-      <div id="hamburger" class="flex flex-col gap-0.5 sm:gap-1">
-        <span class="block h-0.5 w-3 sm:w-4 lg:w-6 bg-black transition-colors duration-200"></span>
-        <span class="block h-0.5 w-3 sm:w-4 lg:w-6 bg-black transition-colors duration-200"></span>
-        <span class="block h-0.5 w-3 sm:w-4 lg:w-6 bg-black transition-colors duration-200"></span>
+      <!-- Hamburger + MENU  -->
+      <div id="hamburgerContainer" class="flex items-center gap-1 sm:gap-2 lg:gap-3 cursor-pointer whitespace-nowrap z-10">
+        <div id="hamburger" class="flex flex-col gap-0.5 sm:gap-1">
+          <span class="block h-0.5 w-3 sm:w-4 lg:w-6 bg-black transition-colors duration-200"></span>
+          <span class="block h-0.5 w-3 sm:w-4 lg:w-6 bg-black transition-colors duration-200"></span>
+          <span class="block h-0.5 w-3 sm:w-4 lg:w-6 bg-black transition-colors duration-200"></span>
+        </div>
+        <span id="menuText" class="header-font font-thin text-black text-sm sm:text-base lg:text-xl">MENU</span>
       </div>
 
-      <span id="menuText" class="header-font font-thin text-black text-sm sm:text-base lg:text-xl">MENU</span>
+      <!-- Logo wrapper -->
+      <div class="absolute inset-x-0 flex justify-center pointer-events-none">
+        <img src="./assets/logoBlack.png" alt="Karun Mahtani Logo" class="w-[9rem] sm:w-[8rem] md:w-[16rem] lg:w-[26rem] -translate-x-[2%] sm:translate-x-0" />
+      </div>
+
+      <!-- Help & Service -->
+      <div id="helpContact" class="flex items-center gap-1 sm:gap-2 lg:gap-3 rounded cursor-pointer transition-colors duration-200 z-10">
+        <div class="w-5 h-5 text-[0.7rem] sm:w-5 sm:h-5 sm:text-[0.7rem] md:w-6 md:h-6 md:text-sm lg:w-8 lg:h-8 lg:text-base flex items-center justify-center rounded-full bg-[#fdb930] border border-black text-black font-normal transition-all duration-200">
+          ?
+        </div>
+      </div>
+
     </div>
+  </header>
 
-          <!-- Logo wrapper -->
-    <div class="absolute inset-x-0 flex justify-center pointer-events-none">
-      <img src="./assets/logoBlack.png" alt="Karun Mahtani Logo" 
-          class="w-[9rem] sm:w-[8rem] md:w-[16rem] lg:w-[26rem] 
-                  -translate-x-[2%] sm:translate-x-0" />
-    </div>
+  <!-- Dropdown Menu -->
+  <div id="dropdownMenu" class="fixed inset-0 sm:inset-x-0 sm:top-0 bg-white shadow-md z-40 overflow-y-auto transition-[max-height] duration-500">
+    <div class="max-w-screen-3xl mx-auto px-6 sm:px-10 lg:px-20 py-16 flex flex-col sm:flex-row justify-center items-start gap-16 sm:gap-24 lg:gap-32">
+      <!-- DATA -->
+      <div class="flex flex-col gap-2 sm:gap-8 lg:gap-10 text-left">
+        <span class="header-font font-thin lg:font-normal text-black/60 text-sm sm:text-base lg:text-lg">DATA</span>
+        <a href="about.html" class="header-font font-thin lg:font-normal text-black text-sm sm:text-base lg:text-lg hover:text-red-500 transition-colors duration-200">ABOUT</a>
+        <a href="dates.html" class="header-font font-thin lg:font-normal text-black text-sm sm:text-base lg:text-lg hover:text-red-500 transition-colors duration-200">DATES</a>
+        <a href="main.html" class="header-font font-thin lg:font-normal text-black text-sm sm:text-base lg:text-lg hover:text-red-500 transition-colors duration-200">HOME</a>
+      </div>
 
-
-    <!-- Help & Service -->
-    <div id="helpContact" class="flex items-center gap-1 sm:gap-2 lg:gap-3 rounded cursor-pointer transition-colors duration-200 z-10">
-      <div class="w-5 h-5 text-[0.7rem]          
-                  sm:w-5 sm:h-5 sm:text-[0.7rem]  
-                  md:w-6 md:h-6 md:text-sm            
-                  lg:w-8 lg:h-8 lg:text-base         
-                  flex items-center justify-center rounded-full bg-[#fdb930] border border-black text-black font-normal transition-all duration-200">
-        ?
+      <!-- SOCIALS -->
+      <div class="flex flex-col gap-2 sm:gap-8 lg:gap-10 text-left">
+        <span class="header-font font-thin lg:font-normal text-black/60 text-sm sm:text-base lg:text-lg">SOCIALS</span>
+        <a href="https://www.instagram.com/karunmahtani?igsh=anI4aGxqeXRmYzJk" target="_blank" rel="noopener noreferrer" class="header-font font-thin lg:font-normal text-black text-sm sm:text-base lg:text-lg hover:text-red-500 transition-colors duration-200">INSTAGRAM</a>
+        <a href="https://www.tiktok.com/@karunmahtani?lang=en-GB" target="_blank" rel="noopener noreferrer" class="header-font font-thin lg:font-normal text-black text-sm sm:text-base lg:text-lg hover:text-red-500 transition-colors duration-200">TIKTOK</a>
+        <a href="https://www.facebook.com/profile.php?id=61579875883452" target="_blank" rel="noopener noreferrer" class="header-font font-thin lg:font-normal text-black text-sm sm:text-base lg:text-lg hover:text-red-500 transition-colors duration-200">FACEBOOK</a>
+        <a href="https://www.youtube.com/@KarunMahtani" target="_blank" rel="noopener noreferrer" class="header-font font-thin lg:font-normal text-black text-sm sm:text-base lg:text-lg hover:text-red-500 transition-colors duration-200">YOUTUBE</a>
+        <a href="https://x.com/KarunMahtani" target="_blank" rel="noopener noreferrer" class="header-font font-thin lg:font-normal text-black text-sm sm:text-base lg:text-lg hover:text-red-500 transition-colors duration-200">X</a>
       </div>
     </div>
-
-</header>
-
-<!-- Dropdown Panel -->
-<div id="dropdownMenu"
-     class="fixed inset-0 sm:inset-x-0 sm:top-0 bg-white shadow-md z-40
-            overflow-y-auto transition-[max-height] duration-500">
-
-  <div class="max-w-screen-3xl mx-auto px-6 sm:px-10 lg:px-20 py-16
-              flex flex-col sm:flex-row justify-center items-start
-              gap-16 sm:gap-24 lg:gap-32">
-
-    <!-- DATA Section -->
-    <div class="flex flex-col gap-2 sm:gap-8 lg:gap-10 text-left">
-      <span class="header-font font-thin lg:font-normal text-black/60 text-sm sm:text-base lg:text-lg">
-        DATA
-      </span>
-
-      <a href="about.html"
-         class="header-font font-thin lg:font-normal text-black text-sm sm:text-base lg:text-lg hover:text-red-500 transition-colors duration-200">
-         ABOUT
-      </a>
-
-      <a href="dates.html"
-         class="header-font font-thin lg:font-normal text-black text-sm sm:text-base lg:text-lg hover:text-red-500 transition-colors duration-200">
-         DATES
-      </a>
-
-      <a href="main.html"
-         class="header-font font-thin lg:font-normal text-black text-sm sm:text-base lg:text-lg hover:text-red-500 transition-colors duration-200">
-         HOME
-      </a>
-    </div>
-
-    <!-- SOCIALS Section -->
-    <div class="flex flex-col gap-2 sm:gap-8 lg:gap-10 text-left">
-      <span class="header-font font-thin lg:font-normal text-black/60 text-sm sm:text-base lg:text-lg">
-        SOCIALS
-      </span>
-
-      <a href="https://www.instagram.com/karunmahtani?igsh=anI4aGxqeXRmYzJk"
-         target="_blank" rel="noopener noreferrer"
-         class="header-font font-thin lg:font-normal text-black text-sm sm:text-base lg:text-lg hover:text-red-500 transition-colors duration-200">
-         INSTAGRAM
-      </a>
-
-      <a href="https://www.tiktok.com/@karunmahtani?lang=en-GB"
-         target="_blank" rel="noopener noreferrer"
-         class="header-font font-thin lg:font-normal text-black text-sm sm:text-base lg:text-lg hover:text-red-500 transition-colors duration-200">
-         TIKTOK
-      </a>
-
-      <a href="https://www.facebook.com/profile.php?id=61579875883452"
-         target="_blank" rel="noopener noreferrer"
-         class="header-font font-thin lg:font-normal text-black text-sm sm:text-base lg:text-lg hover:text-red-500 transition-colors duration-200">
-         FACEBOOK
-      </a>
-
-      <a href="https://www.youtube.com/@KarunMahtani"
-         target="_blank" rel="noopener noreferrer"
-         class="header-font font-thin lg:font-normal text-black text-sm sm:text-base lg:text-lg hover:text-red-500 transition-colors duration-200">
-         YOUTUBE
-      </a>
-
-      <a href="https://x.com/KarunMahtani"
-         target="_blank" rel="noopener noreferrer"
-         class="header-font font-thin lg:font-normal text-black text-sm sm:text-base lg:text-lg hover:text-red-500 transition-colors duration-200">
-         X
-      </a>
-    </div>
-
   </div>
-</div>
 
+  <!-- BIO + IMAGE SECTION -->
+  <section class="max-w-screen-xl mx-auto px-4 sm:px-6 py-20 grid grid-cols-1 md:grid-cols-2 gap-20">
 
+    <!-- LEFT: BIO -->
+    <div class="flex flex-col justify-start">
+      <h2 class="text-4xl font-bold mb-6">Karun Mahtani - DJ & Producer</h2>
 
- <section class="max-w-screen-xl mx-auto px-6 py-20 grid grid-cols-1 md:grid-cols-2 gap-20">
+      <div class="relative overflow-hidden max-h-36" id="bioPreview">
+        <p class="text-lg leading-relaxed text-gray-800">
+          Karun Mahtani is an internationally recognized DJ, songwriter and producer. He is
+          known for his energetic sets, innovative sound design, and ability to create
+          unforgettable live experiences. Since his early days, Karun has performed at premier
+          venues around the world, blending rhythms, cultures and modern electronic elements
+          into a truly signature sound.
+        </p>
+        <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white to-transparent pointer-events-none" id="fadeBio"></div>
+      </div>
 
-  <!-- LEFT: BIO TEXT -->
-  <div class="flex flex-col justify-start -ml-6 md:-ml-12 lg:-ml-20">
-    <h2 class="text-4xl font-bold mb-6">Karun Mahtani - DJ & Producer</h2>
-
-    <div class="relative overflow-hidden max-h-36" id="bioPreview">
-      <p class="text-lg leading-relaxed text-gray-800">
-        Karun Mahtani is an internationally recognized DJ, songwriter and producer. He is
-        known for his energetic sets, innovative sound design, and ability to create
-        unforgettable live experiences. Since his early days, Karun has performed at premier
-        venues around the world, blending rhythms, cultures and modern electronic elements
-        into a truly signature sound.
+      <p id="fullBio" class="text-lg leading-relaxed text-gray-800 mt-4 hidden">
+        With deep musical roots and years of experience, Karun continues to evolve his craft—experimenting
+        with new genres while maintaining a strong connection to his audience. His performances are
+        more than music; they are immersive journeys that leave fans wanting more.
+        Known for his energetic sets, innovative sound design, and ability to create unforgettable live experiences.
+        Since his early days, Karun has performed at premier venues around the world, blending rhythms, cultures and modern electronic elements into a truly signature sound.
       </p>
 
-      <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white to-transparent pointer-events-none" id="fadeBio"></div>
+      <button id="bioToggle" class="mt-4 text-black px-5 py-2 rounded-full transition duration-300">
+        Read More
+      </button>
     </div>
 
-    <p id="fullBio" class="text-lg leading-relaxed text-gray-800 mt-4 hidden">
-      With deep musical roots and years of experience, Karun continues to evolve his craft—experimenting
-      with new genres while maintaining a strong connection to his audience. His performances are
-      more than music; they are immersive journeys that leave fans wanting more.
-      known for his energetic sets, innovative sound design, and ability to create
-      unforgettable live experiences. Since his early days, Karun has performed at premier
-      venues around the world, blending rhythms, cultures and modern electronic elements
-      into a truly signature sound.
+    <!-- RIGHT: IMAGE + BUTTONS -->
+    <div class="flex flex-col items-start mt-6 md:mt-0">
+      <img src="./assets/aboutImage.jpeg" alt="Karun Mahtani" class="w-96 md:w-[450px] lg:w-[610px] object-contain mb-6" />
 
-      known for his energetic sets, innovative sound design, and ability to create
-      unforgettable live experiences. Since his early days, Karun has performed at premier
-      venues around the world, blending rhythms, cultures and modern electronic elements
-      into a truly signature sound.
-    </p>
+      <div class="flex items-center mt-4 gap-4 w-full px-0 sm:px-0">
+        <a href="request.html" class="flex-1 bg-black text-white font-bold py-6 text-sm hover:bg-yellow-500 transition-colors duration-300 rounded-none text-center">
+          REQUEST A SHOW
+        </a>
 
-    <button 
-      id="bioToggle"
-      class="mt-4 text-black px-5 py-2 rounded-full transition duration-300">
-      Read More
-    </button>
-  </div>
+        <div class="hidden sm:block w-[1px] h-16 bg-black"></div>
 
-  <div class="flex flex-col justify-start self-start -mr-10 md:-mr-20 lg:-mr-32">
+        <a href="bookings.html" class="flex-1 bg-[#3A3A3A] text-white font-bold py-6 text-sm hover:bg-yellow-500 transition-colors duration-300 rounded-none text-center">
+          BOOK KARUN MAHTANI
+        </a>
+      </div>
+    </div>
+  </section>
 
-  <!-- WRAPPER keeps image + buttons aligned -->
-  <div class="flex flex-col items-start">
-
-    <!-- IMAGE -->
-    <img 
-      src="./assets/aboutImage.jpeg" 
-      alt="Karun Mahtani" 
-      class="w-96 md:w-[450px] lg:w-[610px] object-contain"
-    />
-
-    <!-- BUTTON ROW WITH EQUAL WIDTH BUTTONS -->
-    <div class="flex items-center mt-6 gap-4">
-
-      <!-- REQUEST A SHOW -->
-      <a href="request.html" 
-         class="w-48 sm:w-60 md:w-64 lg:w-72
-                bg-black text-white font-bold px-4 py-6 text-sm 
-                hover:bg-yellow-500 transition-colors duration-300
-                rounded-none text-center">
-        REQUEST A SHOW
-      </a>
-
-      <!-- VERTICAL LINE -->
-      <div class="w-[1px] h-16 bg-black"></div>
-
-      <!-- BOOK KARUN MAHTANI (SLIGHTLY LIGHTER BLACK) -->
-      <a href="bookings.html" 
-         class="w-48 sm:w-60 md:w-64 lg:w-72 
-                bg-[#3A3A3A] text-white font-bold px-4 py-6 text-sm 
-                hover:bg-yellow-500 transition-colors duration-300
-                rounded-none text-center">
-        BOOK KARUN MAHTANI
-      </a>
-
+  <!-- FAQ SECTION -->
+  <section class="max-w-screen-xl mx-auto px-4 sm:px-6 mt-32 mb-20 grid grid-cols-1 md:grid-cols-2 gap-20">
+    <!-- LEFT TITLE -->
+    <div class="flex flex-col justify-start">
+      <h3 class="text-4xl font-bold tracking-tight leading-tight">
+        FREQUENTLY ASKED <br> QUESTIONS ABOUT <br> BOOKING KARUN MAHTANI
+      </h3>
     </div>
 
-  </div>
-</div>
+    <!-- RIGHT FAQ LIST -->
+    <div class="w-full max-w-[610px] flex flex-col gap-10">
 
-</section>
+      <div class="border-b border-gray-300 pb-6">
+        <button class="w-full flex justify-between items-start text-left faq-toggle">
+          <span class="text-xl font-medium leading-snug">WHAT TYPES OF EVENTS DOES KARUN MAHTANI DJ AT ?</span>
+          <span class="text-3xl font-light shrink-0 ml-6">+</span>
+        </button>
+        <p class="faq-content hidden mt-4 text-gray-700 text-lg leading-relaxed">
+          Corporate events, nightlife venues, brand launches, private parties, and festivals.
+        </p>
+      </div>
 
-<!-- ⭐⭐⭐ FAQ SECTION (MN2S STYLE) ⭐⭐⭐ -->
-<section class="max-w-screen-xl mx-auto px-6 mt-32 mb-20 grid grid-cols-1 md:grid-cols-2 gap-20">
+      <div class="border-b border-gray-300 pb-6">
+        <button class="w-full flex justify-between items-start text-left faq-toggle">
+          <span class="text-xl font-medium leading-snug">HOW LONG IS A TYPICAL DJ SET ?</span>
+          <span class="text-3xl font-light shrink-0 ml-6">+</span>
+        </button>
+        <p class="faq-content hidden mt-4 text-gray-700 text-lg leading-relaxed">
+          Usually 60–120 minutes, but this can be adjusted to your event needs.
+        </p>
+      </div>
 
-  <!-- LEFT TITLE -->
-  <div class="flex flex-col justify-start -ml-6 md:-ml-12 lg:-ml-20">
-    <h3 class="text-4xl font-bold tracking-tight leading-tight">
-      FREQUENTLY ASKED <br> QUESTIONS ABOUT <br> BOOKING KARUN MAHTANI
-  </div>
+      <div class="border-b border-gray-300 pb-6">
+        <button class="w-full flex justify-between items-start text-left faq-toggle">
+          <span class="text-xl font-medium leading-snug">WHAT TECHNICAL SETUP IS REQUIRED ?</span>
+          <span class="text-3xl font-light shrink-0 ml-6">+</span>
+        </button>
+        <p class="faq-content hidden mt-4 text-gray-700 text-lg leading-relaxed">
+          We’ll discuss and provide technical requirements once the booking has been requested. 
+          Please note that DJs often travel with their own staff.
+        </p>
+      </div>
 
-  <!-- RIGHT FAQ LIST -->
-  <div class="w-full max-w-[610px] flex flex-col gap-10">
+      <div class="border-b border-gray-300 pb-6">
+        <button class="w-full flex justify-between items-start text-left faq-toggle">
+          <span class="text-xl font-medium leading-snug">CAN KARUN MAHTANI ADAPT THEIR SET TO FIT OUR BRAND OR THEME ?</span>
+          <span class="text-3xl font-light shrink-0 ml-6">+</span>
+        </button>
+        <p class="faq-content hidden mt-4 text-gray-700 text-lg leading-relaxed">
+          Yes, it’s not uncommon — KARUN MAHTANI can curate music to match your event’s tone or campaign identity.
+        </p>
+      </div>
 
-  <div class="border-b border-gray-300 pb-6">
-    <button class="w-full flex justify-between items-start text-left faq-toggle">
-      <span class="text-xl font-medium leading-snug">
-        WHAT TYPES OF EVENTS DOES KARUN MAHTANI DJ AT ?
-      </span>
-      <span class="text-3xl font-light shrink-0 ml-6">+</span>
-    </button>
-    <p class="faq-content hidden mt-4 text-gray-700 text-lg leading-relaxed">
-      Corporate events, nightlife venues, brand launches, private parties, and festivals.
-    </p>
-  </div>
+      <div class="border-b border-gray-300 pb-6">
+        <button class="w-full flex justify-between items-start text-left faq-toggle">
+          <span class="text-xl font-medium leading-snug">DOES KARUN MAHTANI TRAVEL INTERNATIONALLY FOR DJ BOOKINGS ?</span>
+          <span class="text-3xl font-light shrink-0 ml-6">+</span>
+        </button>
+        <p class="faq-content hidden mt-4 text-gray-700 text-lg leading-relaxed">
+          Yes, subject to travel and hospitality arrangements. Please be aware that they often do not travel alone.
+        </p>
+      </div>
 
-  <div class="border-b border-gray-300 pb-6">
-    <button class="w-full flex justify-between items-start text-left faq-toggle">
-      <span class="text-xl font-medium leading-snug">
-        HOW LONG IS A TYPICAL DJ SET ?
-      </span>
-      <span class="text-3xl font-light shrink-0 ml-6">+</span>
-    </button>
-    <p class="faq-content hidden mt-4 text-gray-700 text-lg leading-relaxed">
-      Usually 60–120 minutes, but this can be adjusted to your event needs.
-    </p>
-  </div>
+      <div class="border-b border-gray-300 pb-6">
+        <button class="w-full flex justify-between items-start text-left faq-toggle">
+          <span class="text-xl font-medium leading-snug">CAN KARUN MAHTANI ALSO PARTICIPATE IN OTHER TYPES OF EVENTS OR CAMPAIGNS ?</span>
+          <span class="text-3xl font-light shrink-0 ml-6">+</span>
+        </button>
+        <p class="faq-content hidden mt-4 text-gray-700 text-lg leading-relaxed">
+          Yes — many DJs are multi-talented and can take part in brand partnerships, commercials, 
+          social media campaigns, or promotional events, in addition to live DJ sets.
+        </p>
+      </div>
 
-  <div class="border-b border-gray-300 pb-6">
-    <button class="w-full flex justify-between items-start text-left faq-toggle">
-      <span class="text-xl font-medium leading-snug">
-        WHAT TECHNICAL SETUP IS REQUIRED ?
-      </span>
-      <span class="text-3xl font-light shrink-0 ml-6">+</span>
-    </button>
-    <p class="faq-content hidden mt-4 text-gray-700 text-lg leading-relaxed">
-      We’ll discuss and provide technical requirements once the booking has been requested. 
-      Please note that DJs often travel with their own staff.
-    </p>
-  </div>
-
-  <div class="border-b border-gray-300 pb-6">
-    <button class="w-full flex justify-between items-start text-left faq-toggle">
-      <span class="text-xl font-medium leading-snug">
-        CAN KARUN MAHTANI ADAPT THEIR SET TO FIT OUR BRAND OR THEME ?
-      </span>
-      <span class="text-3xl font-light shrink-0 ml-6">+</span>
-    </button>
-    <p class="faq-content hidden mt-4 text-gray-700 text-lg leading-relaxed">
-        Yes, it’s not uncommon — KARUN MAHTANI can curate music to match your event’s tone or campaign identity.
-    </p>
-  </div>
-
-  <div class="border-b border-gray-300 pb-6">
-    <button class="w-full flex justify-between items-start text-left faq-toggle">
-      <span class="text-xl font-medium leading-snug">
-        DOES KARUN MAHTANI TRAVEL INTERNATIONALLY FOR DJ BOOKINGS ?
-      </span>
-      <span class="text-3xl font-light shrink-0 ml-6">+</span>
-    </button>
-    <p class="faq-content hidden mt-4 text-gray-700 text-lg leading-relaxed">
-        Yes, subject to travel and hospitality arrangements. Please be aware that they often do not travel alone.
-    </p>
-  </div>
-
-  <div class="border-b border-gray-300 pb-6">
-    <button class="w-full flex justify-between items-start text-left faq-toggle">
-      <span class="text-xl font-medium leading-snug">
-        CAN KARUN MAHTANI ALSO PARTICIPATE IN OTHER TYPES OF EVENTS OR CAMPAIGNS ?
-      </span>
-      <span class="text-3xl font-light shrink-0 ml-6">+</span>
-    </button>
-    <p class="faq-content hidden mt-4 text-gray-700 text-lg leading-relaxed">
-      Yes — many DJs are multi-talented and can take part in brand partnerships, commercials, 
-      social media campaigns, or promotional events, in addition to live DJ sets.
-    </p>
-  </div>
-
-</div>
-
-
-</section>
-
-
-
-<footer class="relative bg-black text-white py-32 border-t border-gray-700">
-  <div class="max-w-screen-2xl mx-auto px-6 sm:px-10 lg:px-20 relative">
-
-    <!-- Left: Translate Button -->
-    <button 
-      class="absolute left-6 top-1/2 -translate-y-1/2 flex items-center px-0 py-0 rounded-full transition-transform duration-300"
-      onclick="toggleLanguage()">
-      <img src="./assets/lng1.png" alt="Translate Icon" class="w-6 h-6 lg:w-7 lg:h-7 object-contain">
-    </button>
-
-    <!-- Center: Logo and Copyright -->
-    <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center text-center">
-      <img src="./assets/logoWhite.png" alt="Karun Mahtani Logo" class="w-36 sm:w-56 lg:w-64 mb-4">
-      <p class="text-xs sm:text-sm md:text-base text-gray-400 ">&copy; 2025 Karun Mahtani Pvt Ltd. All rights reserved.</p>
     </div>
+  </section>
 
-  </div>
-</footer>
-<div id="google_translate_element" style="display:none;"></div>
+  <!-- FOOTER -->
+  <footer class="relative bg-black text-white py-32 border-t border-gray-700">
+    <div class="max-w-screen-2xl mx-auto px-6 sm:px-10 lg:px-20 relative">
+      <!-- Left: Translate Button -->
+      <button class="absolute left-6 top-1/2 -translate-y-1/2 flex items-center px-0 py-0 rounded-full transition-transform duration-300" onclick="toggleLanguage()">
+        <img src="./assets/lng1.png" alt="Translate Icon" class="w-6 h-6 lg:w-7 lg:h-7 object-contain">
+      </button>
 
-<script src="./scripts/translate.js"></script>
-<script src="./scripts/aboutScript.js"></script>
-<script src="./scripts/nav.js"></script>
+      <!-- Center: Logo and Copyright -->
+      <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center text-center">
+        <img src="./assets/logoWhite.png" alt="Karun Mahtani Logo" class="w-36 sm:w-56 lg:w-64 mb-4">
+        <p class="text-xs sm:text-sm md:text-base text-gray-400 ">&copy; 2025 Karun Mahtani Pvt Ltd. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div id="google_translate_element" style="display:none;"></div>
+  <script src="./scripts/translate.js"></script>
+  <script src="./scripts/aboutScript.js"></script>
+  <script src="./scripts/nav.js"></script>
 </body>
 </html>
-
